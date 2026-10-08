@@ -1,0 +1,140 @@
+{
+  "package_id": "demonstracao-curriculo",
+  "version": "0.1.0",
+  "content_status": "DEMONSTRATION",
+  "subject": {
+    "key": "disciplina-demo",
+    "name": "DEMONSTRAÇÃO — Disciplina fictícia",
+    "provenance": {
+      "source_id": "demo-001",
+      "source_name": "Material de demonstração do ATLAS",
+      "source_type": "DEMONSTRATION",
+      "source_reference": "Exemplo fictício; não é currículo oficial"
+    }
+  },
+  "units": [
+    {
+      "key": "unidade-introdutoria",
+      "name": "DEMONSTRAÇÃO — Unidade introdutória",
+      "description": "Unidade fictícia para mostrar o formato.",
+      "position": 1,
+      "provenance": {
+        "source_id": "demo-001",
+        "source_name": "Material de demonstração do ATLAS",
+        "source_type": "DEMONSTRATION",
+        "source_reference": "Seção fictícia 1",
+        "source_page": 1
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "key": "topico-demo",
+      "unit_key": "unidade-introdutoria",
+      "name": "DEMONSTRAÇÃO — Tópico fictício",
+      "description": "Conceito fictício para validar o importador.",
+      "importance": 0.7,
+      "difficulty": 0.3,
+      "estimated_minutes": 10,
+      "learning_objectives": ["Reconhecer a estrutura de um exemplo fictício."],
+      "provenance": {
+        "source_id": "demo-001",
+        "source_name": "Material de demonstração do ATLAS",
+        "source_type": "DEMONSTRATION",
+        "source_reference": "Seção fictícia 1",
+        "source_page": 1
+      }
+    },
+    {
+      "key": "subtopico-demo",
+      "unit_key": "unidade-introdutoria",
+      "parent_key": "topico-demo",
+      "name": "DEMONSTRAÇÃO — Subtópico fictício",
+      "description": "Subconceito fictício.",
+      "importance": 0.5,
+      "difficulty": 0.4,
+      "estimated_minutes": 8,
+      "learning_objectives": ["Distinguir conceito e subconceito no exemplo."],
+      "provenance": {
+        "source_id": "demo-001",
+        "source_name": "Material de demonstração do ATLAS",
+        "source_type": "DEMONSTRATION",
+        "source_reference": "Seção fictícia 1.1",
+        "source_page": 2
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "concept_key": "subtopico-demo",
+      "prerequisite_key": "topico-demo",
+      "dependency_strength": 0.7,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "demo-001",
+        "source_name": "Material de demonstração do ATLAS",
+        "source_type": "DEMONSTRATION",
+        "source_reference": "Relação fictícia 1"
+      }
+    }
+  ],
+  "assessments": [
+    {
+      "key": "avaliacao-demo",
+      "name": "DEMONSTRAÇÃO — Avaliação fictícia",
+      "start_date": "2027-01-10",
+      "end_date": "2027-01-10",
+      "importance": 0.8,
+      "coverage": [
+        {
+          "concept_key": "subtopico-demo",
+          "weight": 0.9,
+          "provenance": {
+            "source_id": "demo-001",
+            "source_name": "Material de demonstração do ATLAS",
+            "source_type": "DEMONSTRATION",
+            "source_reference": "Escopo fictício da avaliação"
+          }
+        }
+      ],
+      "provenance": {
+        "source_id": "demo-001",
+        "source_name": "Material de demonstração do ATLAS",
+        "source_type": "DEMONSTRATION",
+        "source_reference": "Avaliação fictícia"
+      }
+    }
+  ],
+  "exercises": [
+    {
+      "key": "questao-demo",
+      "concept_key": "topico-demo",
+      "exercise_type": "TRUE_FALSE",
+      "prompt": "DEMONSTRAÇÃO: este enunciado é fictício?",
+      "answer_spec": {"value": true},
+      "explanation": "Sim; este conteúdo existe apenas para exemplificar o formato.",
+      "difficulty": 0.1,
+      "provenance": {
+        "source_id": "demo-001",
+        "source_name": "Material de demonstração do ATLAS",
+        "source_type": "DEMONSTRATION",
+        "source_reference": "Questão fictícia 1",
+        "source_page": 3
+      }
+    }
+  ],
+  "explanations": [
+    {
+      "key": "explicacao-demo",
+      "concept_key": "topico-demo",
+      "text": "DEMONSTRAÇÃO: esta explicação não pertence ao currículo oficial.",
+      "provenance": {
+        "source_id": "demo-001",
+        "source_name": "Material de demonstração do ATLAS",
+        "source_type": "DEMONSTRATION",
+        "source_reference": "Texto fictício 1",
+        "source_page": 3
+      }
+    }
+  ]
+}

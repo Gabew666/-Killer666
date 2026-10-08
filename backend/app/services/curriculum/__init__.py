@@ -52,3 +52,8 @@ def set_assessment_scope(db: Session, assessment_id: int, weights: dict[int, flo
     db.flush()
     db.add_all([AssessmentConcept(assessment_id=assessment_id, concept_id=c, weight=w) for c, w in weights.items()])
     db.flush()
+
+
+from app.schemas.curriculum_package import CurriculumPackage  # noqa: E402
+from app.services.curriculum.package import CurriculumValidator, CurriculumValidationError  # noqa: E402
+from app.services.curriculum.importer import CurriculumImporter  # noqa: E402

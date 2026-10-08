@@ -2,14 +2,14 @@
 
 Monólito modular Python/FastAPI, SQLAlchemy, SQLite, Pydantic e NetworkX. Um aluno local, nenhuma autenticação complexa ou LLM. O futuro frontend Next.js apenas apresenta decisões do backend.
 
-Fluxo: currículo → grafo → estado do aluno → AdaptivePlanner → SessionBuilder → SessionRuntime → atividade/resposta → Evaluator + LearningService → evidência/mastery/revisão → SessionDecisionEngine → próxima atividade.
+Fluxo: CurriculumPackage JSON → CurriculumValidator → CurriculumImporter → currículo no banco → grafo → estado do aluno → AdaptivePlanner → SessionBuilder → SessionRuntime → atividade/resposta → Evaluator + LearningService → evidência/mastery/revisão → SessionDecisionEngine → próxima atividade.
 
 ## Módulos
 
 - `core`: configurações imutáveis, UTC e fuso de calendário configurável.
-- `db` / `models`: 13 entidades, chaves estrangeiras e restrições.
+- `db` / `models`: entidades curriculares, de aprendizagem e runtime, chaves estrangeiras e restrições.
 - `seed`: currículo provisório e questões determinísticas reproduzíveis.
-- `services/curriculum`: inserção validada de dependências e escopo de avaliação.
+- `services/curriculum`: formato versionado, validação integral antes de gravar, importação transacional e relatório; também inserção validada de dependências e escopo de avaliação.
 - `services/knowledge_graph`: DAG, ancestrais, dependências e lacunas.
 - `services/mastery`: estimativas puras a partir de evidência qualificada.
 - `services/repetition`: revisão desacoplada, intervalos substituíveis.
@@ -30,6 +30,7 @@ Fluxo: currículo → grafo → estado do aluno → AdaptivePlanner → SessionB
 6. **Avaliação determinística.** MULTIPLE_CHOICE, TRUE_FALSE, SHORT_EXACT, NUMERIC e STRUCTURED. Resposta curta é correspondência normalizada com alternativas cadastradas, não análise semântica. STRUCTURED valida campos por rubricas determinísticas. O protocolo semântico não tem implementação nem dependência externa.
 7. **Consistência.** Tentativa, estado, revisão e evento pertencem à mesma transação. O serviço não faz commit escondido. Unicidade impede duplicar número de tentativa ou revisão corrente; sessões mantêm snapshot do plano.
 8. **Runtime.** A sessão passa por PLANNED → IN_PROGRESS → COMPLETED ou ABANDONED. Uma resposta só é aceita para a atividade atual. Repeti-la retorna conflito; concluir ou abandonar bloqueia novas respostas. Exercícios exigem `/answer`; atividades sem exercício usam `/advance`.
+9. **Currículo separado do aluno.** Pacotes são snapshots versionados com proveniência por item. O importador altera apenas tabelas curriculares, não `StudentConceptState`, tentativas, revisões nem sessões. O seed provisório não é substituído automaticamente. A validação checa referências, rubricas e ciclos, e a importação usa savepoint para rollback completo. Versões anteriores permanecem auditáveis; veja [contrato de importação](CURRICULUM_PACKAGE.md).
 
 ## Session Builder adaptativo
 
@@ -54,6 +55,6 @@ Cada resposta atualiza tentativa, estado, revisão, atividades e `LearningEvent(
 
 ## Evolução
 
-A estrutura fica na raiz do checkout. `create_all` inicializa tabelas novas. Um ajuste aditivo e idempotente via `ALTER TABLE` acrescenta colunas opcionais do runtime em SQLite v0.1 preexistente; não transforma nem apaga dados. Ainda não há migrations versionadas para mudanças gerais. Antes de mudanças futuras em instâncias com progresso, introduzir migrations e backup. PostgreSQL precisa de driver e validação próprios. A autenticação e concorrência entre vários usuários ficam fora do escopo local. Nenhum dado é enviado a serviços externos no uso normal.
+A estrutura fica na raiz do checkout. `create_all` inicializa tabelas novas. Um ajuste aditivo e idempotente via `ALTER TABLE` acrescenta colunas opcionais do runtime e os campos curriculares em `concepts` no SQLite v0.1 preexistente; não transforma nem apaga dados. Ainda não há migrations versionadas para mudanças gerais. Antes de mudanças futuras em instâncias com progresso, introduzir migrations e backup. PostgreSQL precisa de driver e validação próprios. A autenticação e concorrência entre vários usuários ficam fora do escopo local. Nenhum dado é enviado a serviços externos no uso normal.
 
 Futuro MaterialIngestionService → extração/chunking → embeddings/vector store → curriculum mapping → tutor/exercícios. Preservar proveniência e revisar conteúdo antes de alterar currículo. Provider LLM opcional com configuração explícita, sem controlar domínio, prioridade ou calendário.

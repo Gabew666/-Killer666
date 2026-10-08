@@ -65,6 +65,52 @@ class Subject(Base):
     name: Mapped[str] = mapped_column(String(200), unique=True)
 
 
+class CurriculumUnit(Base):
+    __tablename__ = "curriculum_units"
+    __table_args__ = (UniqueConstraint("subject_id", "key"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    subject_id: Mapped[int] = mapped_column(ForeignKey("subjects.id"))
+    key: Mapped[str] = mapped_column(String(100))
+    name: Mapped[str] = mapped_column(String(200))
+    description: Mapped[str] = mapped_column(Text, default="")
+    position: Mapped[int] = mapped_column(Integer)
+
+
+class CurriculumExplanation(Base):
+    __tablename__ = "curriculum_explanations"
+    __table_args__ = (UniqueConstraint("subject_id", "key"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    subject_id: Mapped[int] = mapped_column(ForeignKey("subjects.id"))
+    concept_id: Mapped[int] = mapped_column(ForeignKey("concepts.id"))
+    key: Mapped[str] = mapped_column(String(100))
+    text: Mapped[str] = mapped_column(Text)
+
+
+class CurriculumPackageRecord(Base):
+    __tablename__ = "curriculum_package_records"
+    __table_args__ = (UniqueConstraint("package_id", "version"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    package_id: Mapped[str] = mapped_column(String(100))
+    version: Mapped[str] = mapped_column(String(30))
+    content_hash: Mapped[str] = mapped_column(String(64))
+    content_status: Mapped[str] = mapped_column(String(20))
+    payload: Mapped[dict[str, Any]] = mapped_column(JSON)
+    imported_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utc_now)
+
+
+class CurriculumItemRecord(Base):
+    __tablename__ = "curriculum_item_records"
+    __table_args__ = (UniqueConstraint("package_id", "item_type", "item_key"),)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    package_id: Mapped[str] = mapped_column(String(100))
+    item_type: Mapped[str] = mapped_column(String(30))
+    item_key: Mapped[str] = mapped_column(String(200))
+    object_id: Mapped[int | None] = mapped_column(Integer)
+    latest_version: Mapped[str] = mapped_column(String(30))
+    content_hash: Mapped[str] = mapped_column(String(64))
+    provenance: Mapped[dict[str, Any] | None] = mapped_column(JSON)
+
+
 class Concept(Base):
     __tablename__ = "concepts"
     __table_args__ = (
@@ -75,12 +121,15 @@ class Concept(Base):
     )
     id: Mapped[int] = mapped_column(primary_key=True)
     subject_id: Mapped[int] = mapped_column(ForeignKey("subjects.id"), index=True)
+    unit_id: Mapped[int | None] = mapped_column(ForeignKey("curriculum_units.id"), nullable=True)
+    parent_concept_id: Mapped[int | None] = mapped_column(ForeignKey("concepts.id"), nullable=True)
     slug: Mapped[str] = mapped_column(String(100))
     name: Mapped[str] = mapped_column(String(200))
     description: Mapped[str] = mapped_column(Text)
     difficulty: Mapped[float] = mapped_column(Float, default=0.5)
     importance: Mapped[float] = mapped_column(Float, default=0.7)
     estimated_minutes: Mapped[int] = mapped_column(Integer, default=20)
+    learning_objectives: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
     created_at: Mapped[datetime] = mapped_column(UTCDateTime, default=utc_now)
 
 

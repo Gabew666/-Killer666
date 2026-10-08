@@ -1,12 +1,16 @@
-# Esquema — runtime v0.1
+# Esquema — runtime e Curriculum Package v0.1
 
-13 tabelas, SQLAlchemy + SQLite, com `PRAGMA foreign_keys=ON`. IDs simples inteiros, salvo chaves compostas indicadas. JSON guarda rubricas, respostas e snapshots; não há arquivos pessoais desnecessários. Campos temporais têm contrato UTC, inclusive no roundtrip SQLite.
+17 tabelas, SQLAlchemy + SQLite, com `PRAGMA foreign_keys=ON`. IDs simples inteiros, salvo chaves compostas indicadas. JSON guarda rubricas, respostas e snapshots; não há arquivos pessoais desnecessários. Campos temporais têm contrato UTC, inclusive no roundtrip SQLite.
 
 | Tabela | Campos e vínculos principais |
 |---|---|
 | students | id, name, created_at |
 | subjects | id, name único |
-| concepts | id, subject_id, slug, name, description, difficulty, importance, estimated_minutes, created_at; subject+slug único |
+| curriculum_units | id, subject_id, key, name, description, position; subject+key único |
+| curriculum_explanations | id, subject_id, concept_id, key, text; subject+key único |
+| curriculum_package_records | id, package_id, version, content_hash, content_status, payload JSON, imported_at; package_id+version único |
+| curriculum_item_records | id, package_id, item_type, item_key, object_id, latest_version, content_hash, provenance JSON; pacote+tipo+chave único |
+| concepts | id, subject_id, unit_id nullable, parent_concept_id nullable, slug, name, description, difficulty, importance, estimated_minutes, learning_objectives JSON nullable, created_at; subject+slug único |
 | concept_dependencies | id, concept_id, prerequisite_concept_id, dependency_strength, is_essential; par único |
 | assessments | id, subject_id, name, start_date, end_date, importance; subject+name+start_date único |
 | assessment_concepts | **PK assessment_id+concept_id**, weight (0,1] |
@@ -28,4 +32,5 @@
 - `next_review_at` e `retention` são snapshots auxiliares. O scheduler sincroniza o primeiro com ReviewSchedule; leituras recalculam retenção no instante solicitado.
 - Um plano salvo não prova execução. A execução atual mantém uma atividade corrente, registra começo/fim, e distingue atividades concluídas e puladas. Um evento de decisão audita cada adaptação.
 - Datas de avaliação não são timestamps UTC: representam dias de calendário no fuso configurado. O relógio UTC é convertido para esse fuso ao calcular urgência.
-- `create_all` inicializa tabelas ausentes. Em SQLite v0.1 existente, a inicialização acrescenta somente colunas opcionais do runtime com `ALTER TABLE`, de modo idempotente; os registros anteriores permanecem. Isso não é migration versionada nem resolve alterações arbitrárias de esquema. Fazer backup e implantar migrations antes de futuras mudanças complexas ou PostgreSQL.
+- `create_all` inicializa tabelas ausentes. Em SQLite v0.1 existente, a inicialização acrescenta somente colunas opcionais do runtime e `unit_id`, `parent_concept_id`, `learning_objectives` em `concepts` com `ALTER TABLE`, de modo idempotente; os registros anteriores permanecem. Isso não é migration versionada nem resolve alterações arbitrárias de esquema. Fazer backup e implantar migrations antes de futuras mudanças complexas ou PostgreSQL.
+- `curriculum_item_records` mapeia a posse de cada item e sua última proveniência; `curriculum_package_records.payload` conserva o JSON de cada versão para auditoria. Nenhuma tabela de estado do aluno é alterada na importação.

@@ -31,6 +31,11 @@ def initialize_database(engine: Engine) -> None:
     if engine.dialect.name != "sqlite":
         return
     additions = {
+        "concepts": {
+            "unit_id": "INTEGER REFERENCES curriculum_units(id)",
+            "parent_concept_id": "INTEGER REFERENCES concepts(id)",
+            "learning_objectives": "JSON",
+        },
         "study_sessions": {
             "planned_at": "DATETIME", "started_at": "DATETIME", "used_minutes": "INTEGER DEFAULT 0",
             "actual_minutes": "INTEGER", "current_activity_id": "INTEGER",

@@ -3,6 +3,8 @@
 Núcleo local de aprendizado adaptativo: “Tenho X minutos. O que devo estudar agora?”
 O backend v0.1 reúne currículo de IA Simbólica, grafo, avaliação determinística, modelo de evidências, revisão, planejamento explicável e execução interativa de sessões. O restante da sessão muda após uma resposta real. **O frontend pertence ao próximo marco.** Não depende de LLM.
 
+Currículos reais podem ser preparados como pacotes JSON versionados e validados antes da importação. O [exemplo](examples/curriculum_package.example.json) é **DEMONSTRAÇÃO fictícia**, não uma ementa oficial. O seed atual continua inalterado.
+
 ## Instalação e execução
 
 Python 3.12+. Na raiz do checkout:
@@ -24,6 +26,15 @@ Banco padrão: `data/atlas.db` (ignorado pelo Git). Configure `ATLAS_DATABASE_UR
 
 Seed idempotente: Gabriel, 30 conceitos, relações, questões e avaliação de 13 a 17/10/2026 com escopo provisório explícito. Não representa necessariamente a ementa oficial. Reexecutar preserva estados, respostas e conteúdo já existente.
 
+Para conferir um pacote antes de importá-lo, execute na pasta `backend`:
+
+```sh
+.venv/bin/python -m app.services.curriculum validate ../examples/curriculum_package.example.json
+.venv/bin/python -m app.services.curriculum import caminho/do/pacote.json
+```
+
+O segundo comando grava no banco configurado por `ATLAS_DATABASE_URL` ou no banco padrão; `--database-url` permite escolher outro. Importar é uma ação explícita: executar o seed ou iniciar a API não importa o exemplo. O relatório JSON mostra registros criados, alterados e inalterados. Consulte [formato e política de versões](docs/CURRICULUM_PACKAGE.md) antes de montar um pacote institucional.
+
 ## Estrutura
 
 ```text
@@ -38,6 +49,6 @@ data/                     # SQLite local
 
 `frontend/` será criado somente no marco da interface. Para bancos SQLite v0.1 existentes, a inicialização acrescenta apenas as colunas opcionais do runtime, preservando dados. Isso ainda não é um sistema de migrations versionadas; faça backup antes de atualizações futuras. PostgreSQL ainda não foi validado.
 
-Veja [arquitetura](docs/ARCHITECTURE.md), [modelo de aprendizado](docs/LEARNING_MODEL.md), [grafo](docs/KNOWLEDGE_GRAPH.md) e [roadmap](docs/ROADMAP.md). Mastery é uma estimativa heurística; consulte sempre a confiança da evidência e sua quantidade.
+Veja [arquitetura](docs/ARCHITECTURE.md), [modelo de aprendizado](docs/LEARNING_MODEL.md), [grafo](docs/KNOWLEDGE_GRAPH.md), [pacote curricular](docs/CURRICULUM_PACKAGE.md) e [roadmap](docs/ROADMAP.md). Mastery é uma estimativa heurística; consulte sempre a confiança da evidência e sua quantidade.
 
 Um [exemplo reproduzível de runtime](docs/RUNTIME_EXAMPLE.json) acompanha a sequência de um diagnóstico errado de heurística, explicação, prática, A* e revisão agendada, com os minutos restantes após cada passo. Usa banco sintético em memória.
