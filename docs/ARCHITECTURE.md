@@ -1,6 +1,6 @@
 # Arquitetura — runtime v0.1
 
-Monólito modular Python/FastAPI, SQLAlchemy, SQLite, Pydantic e NetworkX. Um aluno local, nenhuma autenticação complexa ou LLM. O futuro frontend Next.js apenas apresenta decisões do backend.
+Monólito modular Python/FastAPI, SQLAlchemy, SQLite, Pydantic e NetworkX. Um aluno local, nenhuma autenticação complexa ou LLM. O frontend MVP Next.js/TypeScript apenas apresenta decisões do backend.
 
 Fluxo: CurriculumPackage JSON → CurriculumValidator → CurriculumImporter → currículo no banco → grafo → estado do aluno → AdaptivePlanner → SessionBuilder → SessionRuntime → atividade/resposta → Evaluator + LearningService → evidência/mastery/revisão → SessionDecisionEngine → próxima atividade.
 
@@ -19,6 +19,8 @@ Fluxo: CurriculumPackage JSON → CurriculumValidator → CurriculumImporter →
 - `services/session_decision`: regras puras depois de uma tentativa, sem banco nem LLM.
 - `services/session_runtime`: máquina de estados persistida, cursor da atividade, orçamento, saltos e histórico.
 - `api` / `schemas`: execução mínima, além de saúde/currículo/estado/planejamento; sem gabaritos.
+- `frontend/src/app`: dashboard, sessão e progresso no App Router; CSS mobile-first, sem biblioteca visual pesada.
+- `frontend/src/lib/api.ts`: URL configurável única, tipos públicos, chamadas HTTP e tradução básica de erros. `state.ts` só classifica e formata o estado recebido; não calcula domínio.
 
 ## Decisões aceitas
 
@@ -52,6 +54,12 @@ O primeiro exercício diagnóstico sinaliza `decision_after=true` e aciona uma d
 Cada resposta atualiza tentativa, estado, revisão, atividades e `LearningEvent(SESSION_DECISION)` na mesma transação. O evento registra decisão, motivo, saldo, IDs inseridos e pulados. O endpoint público apresenta só a questão da atividade atual, sem rubrica ou gabarito; após uma tentativa, retorna acerto, tipo de erro e feedback curto sem alternativa correta. `GET /sessions/{id}` permite retomar a sessão após reiniciar o processo.
 
 `POST /sessions/start` gera e inicia plano; `GET /sessions/{id}` lê estado; `POST /sessions/{id}/answer` avalia; `POST /sessions/{id}/advance` conclui instruções sem questão; `POST /sessions/{id}/finish` conclui ou abandona.
+
+## Frontend MVP e acesso do navegador
+
+O dashboard consulta `/student/state` e `/subjects`, oferece 20/40/60 minutos e armazena apenas o ID da sessão ativa em `localStorage` para retomada no mesmo navegador. A rota `/session/[id]` usa o estado público de `/sessions/{id}`, envia respostas com tempo de resposta e declaração de dica, avança atividades sem exercício e fecha uma sessão sem atividade corrente. A conclusão mostra tempo, atividades e razões de decisão. `/progress` nunca mostra o prior de 0,35 como mastery observado: `mastery=null` é exibido como “Ainda não diagnosticado”. O browser não recebe rubricas nem gabaritos.
+
+O backend libera CORS apenas para origens configuradas em `ATLAS_CORS_ORIGINS`, com defaults locais e sem curinga. `NEXT_PUBLIC_ATLAS_API_URL` define o endereço visto pelo navegador no momento do build. O manifesto PWA contém nome, cores e ícone; offline e service worker ficam para outro marco. A retomada depende do `localStorage` do mesmo navegador, pois ainda não há listagem de sessões por aluno. Respostas estruturadas são inseridas como JSON no MVP.
 
 ## Evolução
 

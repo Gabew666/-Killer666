@@ -7,3 +7,5 @@ data/*.db*
 *.log
 node_modules/
 .next/
+frontend/.env.local
+*.tsbuildinfo

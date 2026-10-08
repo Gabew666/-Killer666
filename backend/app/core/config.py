@@ -42,9 +42,12 @@ class PlannerConfig:
 class Settings:
     database_url: str
     timezone: str = "America/Sao_Paulo"
+    cors_origins: tuple[str, ...] = ("http://localhost:3000", "http://127.0.0.1:3000")
 
     def __post_init__(self) -> None:
         ZoneInfo(self.timezone)  # Falha cedo se houver configuração inválida.
+        if any(origin == "*" or not origin.startswith(("http://", "https://")) for origin in self.cors_origins):
+            raise ValueError("ATLAS_CORS_ORIGINS exige origens HTTP(S) explícitas")
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -52,4 +55,7 @@ class Settings:
         return cls(
             os.getenv("ATLAS_DATABASE_URL", f"sqlite:///{path}"),
             os.getenv("ATLAS_TIMEZONE", "America/Sao_Paulo"),
+            tuple(origin.strip() for origin in os.getenv(
+                "ATLAS_CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
+            ).split(",") if origin.strip()),
         )
