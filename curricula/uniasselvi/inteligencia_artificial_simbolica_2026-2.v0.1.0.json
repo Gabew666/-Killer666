@@ -1,0 +1,1343 @@
+{
+  "package_id": "uniasselvi-ia-simbolica-2026-2",
+  "version": "0.1.0",
+  "content_status": "DRAFT",
+  "subject": {
+    "key": "inteligencia-artificial-simbolica",
+    "name": "Inteligência Artificial Simbólica",
+    "provenance": {
+      "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+      "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+      "source_type": "OFFICIAL_BOOK",
+      "source_reference": "UNIASSELVI — Livro Digital da disciplina, 2026/2",
+      "source_page": 1
+    }
+  },
+  "units": [
+    {
+      "key": "tema-01-fundamentos",
+      "name": "Histórico e Fundamentos da Inteligência Artificial Simbólica",
+      "description": "Evolução histórica, conceitos fundamentais, bases matemáticas e lógicas e introdução prática em Python.",
+      "position": 1,
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 5
+      }
+    },
+    {
+      "key": "tema-02-problemas",
+      "name": "Teoria de Problemas e IA: Modelagem e Soluções Práticas",
+      "description": "Formulação de problemas, espaço de estados, objetivos, modelagem matemática e implementação de soluções básicas.",
+      "position": 2,
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 42
+      }
+    },
+    {
+      "key": "tema-03-paradigma",
+      "name": "Paradigma Simbólico em IA",
+      "description": "Representação por símbolos e regras, lógica proposicional e de predicados e implementação de expressões lógicas em Python.",
+      "position": 3,
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 85
+      }
+    },
+    {
+      "key": "tema-04-busca",
+      "name": "Métodos de Busca em IA",
+      "description": "Algoritmos de busca, formalização, complexidade, comparação de desempenho e implementação em Python.",
+      "position": 4,
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 121
+      }
+    },
+    {
+      "key": "tema-05-representacao",
+      "name": "Representação de Conhecimento e Inferência",
+      "description": "Métodos de representação, teoria dos grafos, inferência lógica e implementação de sistemas de inferência.",
+      "position": 5,
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 155
+      }
+    },
+    {
+      "key": "tema-06-agentes",
+      "name": "Agentes Inteligentes",
+      "description": "Percepção, atuação, representação de estados, modelagem de comportamento e programação de agentes.",
+      "position": 6,
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 185
+      }
+    },
+    {
+      "key": "tema-07-redes-semanticas",
+      "name": "Redes Semânticas em IA Simbólica",
+      "description": "Representação relacional por grafos, organização de conceitos, construção e manipulação de redes semânticas.",
+      "position": 7,
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 219
+      }
+    },
+    {
+      "key": "tema-08-frames",
+      "name": "Frames e Sistemas Baseados em Conhecimento",
+      "description": "Frames, slots, facetas, herança, estrutura hierárquica e implementação prática.",
+      "position": 8,
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 249
+      }
+    },
+    {
+      "key": "tema-09-aplicacoes",
+      "name": "Aplicações Práticas de IA Simbólica",
+      "description": "Aplicações, otimização de algoritmos simbólicos, redes semânticas, frames e projetos em Python.",
+      "position": 9,
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 285
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "key": "fundamentos-ia-simbolica",
+      "unit_key": "tema-01-fundamentos",
+      "name": "Fundamentos da IA simbólica",
+      "description": "Conceitos fundamentais da abordagem simbólica e seu papel na Inteligência Artificial.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Compreender os conceitos fundamentais da IA simbólica.",
+        "Relacionar símbolos e regras lógicas ao raciocínio computacional."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 7
+      }
+    },
+    {
+      "key": "evolucao-historica-ia-simbolica",
+      "unit_key": "tema-01-fundamentos",
+      "name": "Evolução histórica da IA simbólica",
+      "description": "Evolução da IA simbólica desde os anos 1950 até a atualidade.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explorar a evolução da IA simbólica desde os anos 1950 até hoje."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 7
+      },
+      "parent_key": "fundamentos-ia-simbolica"
+    },
+    {
+      "key": "simbolos-e-regras-logicas",
+      "unit_key": "tema-01-fundamentos",
+      "name": "Símbolos e regras lógicas",
+      "description": "Manipulação de símbolos e regras lógicas como base do raciocínio simbólico.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explicar como símbolos e regras lógicas são usados para representar raciocínio."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 7
+      },
+      "parent_key": "fundamentos-ia-simbolica"
+    },
+    {
+      "key": "bases-matematicas-e-logicas",
+      "unit_key": "tema-01-fundamentos",
+      "name": "Bases matemáticas e lógicas",
+      "description": "Princípios matemáticos e lógicos que sustentam a IA simbólica.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Examinar as bases teóricas, incluindo princípios matemáticos e lógicos."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 7
+      },
+      "parent_key": "fundamentos-ia-simbolica"
+    },
+    {
+      "key": "python-para-ia-simbolica",
+      "unit_key": "tema-01-fundamentos",
+      "name": "Python para IA simbólica",
+      "description": "Uso de Python para implementar exercícios e conceitos de IA simbólica.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Configurar o ambiente de desenvolvimento Python para IA.",
+        "Implementar conceitos de IA simbólica em Python."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 7
+      },
+      "parent_key": "fundamentos-ia-simbolica"
+    },
+    {
+      "key": "formulacao-de-problemas-ia",
+      "unit_key": "tema-02-problemas",
+      "name": "Formulação de problemas em IA",
+      "description": "Definição formal de problemas e organização dos elementos necessários à solução.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Definir problemas na IA, incluindo espaço de estados e objetivos.",
+        "Modelar problemas de IA de forma estruturada."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 44
+      }
+    },
+    {
+      "key": "espaco-de-estados",
+      "unit_key": "tema-02-problemas",
+      "name": "Espaço de estados",
+      "description": "Representação dos estados possíveis de um problema e sua importância na resolução.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Entender a importância do espaço de estados na resolução de problemas."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 44
+      },
+      "parent_key": "formulacao-de-problemas-ia"
+    },
+    {
+      "key": "objetivos-em-problemas-ia",
+      "unit_key": "tema-02-problemas",
+      "name": "Objetivos em problemas de IA",
+      "description": "Definição de objetivos e condições de solução.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Descrever métodos para definir objetivos em problemas de IA."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 44
+      },
+      "parent_key": "formulacao-de-problemas-ia"
+    },
+    {
+      "key": "modelagem-matematica-de-problemas",
+      "unit_key": "tema-02-problemas",
+      "name": "Modelagem matemática de problemas",
+      "description": "Uso de modelos matemáticos para representar problemas e soluções.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Modelar matematicamente problemas e soluções na IA."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 44
+      },
+      "parent_key": "formulacao-de-problemas-ia"
+    },
+    {
+      "key": "paradigma-simbolico",
+      "unit_key": "tema-03-paradigma",
+      "name": "Paradigma simbólico",
+      "description": "Representação e manipulação explícita do conhecimento por símbolos e regras.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Entender o paradigma simbólico na IA.",
+        "Aplicar conceitos teóricos em atividades práticas."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 87
+      }
+    },
+    {
+      "key": "logica-proposicional",
+      "unit_key": "tema-03-paradigma",
+      "name": "Lógica proposicional",
+      "description": "Proposições, conectivos e raciocínio lógico aplicados à representação simbólica.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Aprender lógica proposicional.",
+        "Desenvolver habilidades de raciocínio lógico."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 100
+      },
+      "parent_key": "paradigma-simbolico"
+    },
+    {
+      "key": "logica-de-predicados",
+      "unit_key": "tema-03-paradigma",
+      "name": "Lógica de predicados",
+      "description": "Extensão da lógica proposicional com predicados, relações e quantificadores.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Aprender lógica de predicados.",
+        "Representar relações mais complexas entre objetos."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 106
+      },
+      "parent_key": "paradigma-simbolico"
+    },
+    {
+      "key": "expressoes-logicas-python",
+      "unit_key": "tema-03-paradigma",
+      "name": "Expressões lógicas em Python",
+      "description": "Implementação prática de expressões e regras lógicas em Python.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Implementar expressões lógicas em Python."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 87
+      },
+      "parent_key": "paradigma-simbolico"
+    },
+    {
+      "key": "algoritmos-de-busca",
+      "unit_key": "tema-04-busca",
+      "name": "Algoritmos de busca em IA",
+      "description": "Estratégias para explorar espaços de estados e encontrar soluções.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Compreender os diferentes algoritmos de busca utilizados em IA.",
+        "Implementar algoritmos de busca em Python."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 123
+      }
+    },
+    {
+      "key": "bfs",
+      "unit_key": "tema-04-busca",
+      "name": "Busca em largura (BFS)",
+      "description": "Busca não informada que explora os nós nível a nível.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explicar o funcionamento da BFS.",
+        "Analisar completude, otimalidade e custo da BFS."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 130
+      },
+      "parent_key": "algoritmos-de-busca"
+    },
+    {
+      "key": "dfs",
+      "unit_key": "tema-04-busca",
+      "name": "Busca em profundidade (DFS)",
+      "description": "Busca não informada que aprofunda uma ramificação antes de retroceder.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explicar o funcionamento da DFS.",
+        "Comparar DFS e BFS."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 135
+      },
+      "parent_key": "algoritmos-de-busca"
+    },
+    {
+      "key": "busca-heuristica",
+      "unit_key": "tema-04-busca",
+      "name": "Busca heurística",
+      "description": "Busca informada que usa estimativas para priorizar caminhos promissores.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Compreender o papel de funções heurísticas na busca."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 141
+      },
+      "parent_key": "algoritmos-de-busca"
+    },
+    {
+      "key": "a-star",
+      "unit_key": "tema-04-busca",
+      "name": "Algoritmo A*",
+      "description": "Busca heurística que combina custo acumulado e estimativa do custo restante.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explicar como A* combina custo acumulado e heurística.",
+        "Relacionar a qualidade da heurística ao desempenho e à otimalidade."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 141
+      },
+      "parent_key": "busca-heuristica"
+    },
+    {
+      "key": "complexidade-e-comparacao-buscas",
+      "unit_key": "tema-04-busca",
+      "name": "Complexidade e comparação de buscas",
+      "description": "Análise de tempo, espaço, completude, otimalidade e desempenho.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Analisar a complexidade dos algoritmos de busca.",
+        "Comparar a performance dos algoritmos de busca."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 123
+      },
+      "parent_key": "algoritmos-de-busca"
+    },
+    {
+      "key": "representacao-de-conhecimento",
+      "unit_key": "tema-05-representacao",
+      "name": "Representação de conhecimento",
+      "description": "Estruturação de informação para que sistemas de IA possam raciocinar e tomar decisões.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Compreender os principais métodos de representação de conhecimento em IA."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 157
+      }
+    },
+    {
+      "key": "teoria-dos-grafos-para-conhecimento",
+      "unit_key": "tema-05-representacao",
+      "name": "Teoria dos grafos para representação",
+      "description": "Uso de nós, arestas e caminhos para modelar redes de conhecimento.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explorar a aplicação da teoria dos grafos na representação de conhecimento."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 161
+      },
+      "parent_key": "representacao-de-conhecimento"
+    },
+    {
+      "key": "inferencia-logica",
+      "unit_key": "tema-05-representacao",
+      "name": "Inferência lógica",
+      "description": "Derivação de conclusões a partir do conhecimento representado e de regras lógicas.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Entender como a inferência lógica é realizada.",
+        "Aplicar lógica proposicional e de predicados em sistemas de inferência."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 157
+      },
+      "parent_key": "representacao-de-conhecimento"
+    },
+    {
+      "key": "sistemas-de-inferencia-python",
+      "unit_key": "tema-05-representacao",
+      "name": "Sistemas de inferência em Python",
+      "description": "Implementação prática de sistemas de inferência simples e manipulação de grafos.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Implementar sistemas de inferência simples.",
+        "Utilizar Python para criar e manipular redes semânticas e grafos."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 157
+      },
+      "parent_key": "representacao-de-conhecimento"
+    },
+    {
+      "key": "agentes-inteligentes",
+      "unit_key": "tema-06-agentes",
+      "name": "Agentes inteligentes",
+      "description": "Sistemas que percebem o ambiente, processam informações e agem de forma autônoma.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Compreender o conceito de agentes inteligentes.",
+        "Aplicar agentes inteligentes em problemas reais."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 187
+      }
+    },
+    {
+      "key": "percepcao-e-acao",
+      "unit_key": "tema-06-agentes",
+      "name": "Percepção e ação",
+      "description": "Mecanismos pelos quais agentes percebem o ambiente e executam ações.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explorar a percepção e a atuação dos agentes."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 187
+      },
+      "parent_key": "agentes-inteligentes"
+    },
+    {
+      "key": "representacao-de-estados-agentes",
+      "unit_key": "tema-06-agentes",
+      "name": "Representação de estados de agentes",
+      "description": "Representação do ambiente e do estado do agente para apoiar decisões.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Representar estados relevantes para a tomada de decisão do agente."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 203
+      },
+      "parent_key": "agentes-inteligentes"
+    },
+    {
+      "key": "modelagem-comportamento-agentes",
+      "unit_key": "tema-06-agentes",
+      "name": "Modelagem do comportamento de agentes",
+      "description": "Formalização matemática e lógica do comportamento de agentes.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Modelar matematicamente o comportamento de agentes.",
+        "Formalizar os comportamentos de agentes."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 187
+      },
+      "parent_key": "agentes-inteligentes"
+    },
+    {
+      "key": "redes-semanticas",
+      "unit_key": "tema-07-redes-semanticas",
+      "name": "Redes semânticas",
+      "description": "Representação estruturada e relacional do conhecimento por meio de grafos.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Entender o conceito de redes semânticas.",
+        "Compreender a importância da representação do conhecimento."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 221
+      }
+    },
+    {
+      "key": "nos-e-arestas-redes-semanticas",
+      "unit_key": "tema-07-redes-semanticas",
+      "name": "Nós e arestas em redes semânticas",
+      "description": "Nós representam conceitos ou entidades; arestas representam relações.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Identificar nós, arestas e relações em uma rede semântica."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 163
+      },
+      "parent_key": "redes-semanticas"
+    },
+    {
+      "key": "relacoes-hierarquicas-redes-semanticas",
+      "unit_key": "tema-07-redes-semanticas",
+      "name": "Relações e hierarquias",
+      "description": "Organização relacional e hierárquica de conceitos em grafos semânticos.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Conhecer a construção e a organização de redes semânticas."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 221
+      },
+      "parent_key": "redes-semanticas"
+    },
+    {
+      "key": "redes-semanticas-python",
+      "unit_key": "tema-07-redes-semanticas",
+      "name": "Implementação de redes semânticas em Python",
+      "description": "Construção, manipulação e análise de redes semânticas com Python.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Desenvolver a implementação prática com Python.",
+        "Explorar a manipulação e a análise de dados em redes semânticas."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 221
+      },
+      "parent_key": "redes-semanticas"
+    },
+    {
+      "key": "frames",
+      "unit_key": "tema-08-frames",
+      "name": "Frames",
+      "description": "Estruturas de dados que agrupam conhecimento relacionado sobre conceitos, objetos ou situações.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Entender o conceito de frames na IA Simbólica.",
+        "Compreender a importância dos frames na representação do conhecimento."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 251
+      }
+    },
+    {
+      "key": "slots-e-facetas",
+      "unit_key": "tema-08-frames",
+      "name": "Slots e facetas",
+      "description": "Componentes que armazenam atributos, valores, restrições e informações adicionais em frames.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Identificar a estrutura interna de um frame e o papel de slots e facetas."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 167
+      },
+      "parent_key": "frames"
+    },
+    {
+      "key": "heranca-em-frames",
+      "unit_key": "tema-08-frames",
+      "name": "Herança em frames",
+      "description": "Mecanismo de herança de propriedades entre superframes e subframes.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Realizar a análise estrutural e de herança em frames."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 168
+      },
+      "parent_key": "frames"
+    },
+    {
+      "key": "estrutura-hierarquica-frames",
+      "unit_key": "tema-08-frames",
+      "name": "Estrutura hierárquica de frames",
+      "description": "Organização modular e hierárquica que permite reutilização e especialização do conhecimento.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Analisar estruturas hierárquicas de frames."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 258
+      },
+      "parent_key": "frames"
+    },
+    {
+      "key": "aplicacoes-ia-simbolica",
+      "unit_key": "tema-09-aplicacoes",
+      "name": "Aplicações práticas de IA simbólica",
+      "description": "Uso integrado de lógica, busca, redes semânticas, frames e programação em aplicações reais.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explorar as aplicações práticas de IA simbólica.",
+        "Fomentar a aplicabilidade profissional de IA simbólica."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 287
+      }
+    },
+    {
+      "key": "otimizacao-algoritmos-simbolicos",
+      "unit_key": "tema-09-aplicacoes",
+      "name": "Otimização de algoritmos simbólicos",
+      "description": "Técnicas para melhorar eficiência de algoritmos simbólicos, incluindo heurísticas e podas.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Analisar a otimização de algoritmos simbólicos."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 287
+      },
+      "parent_key": "aplicacoes-ia-simbolica"
+    },
+    {
+      "key": "projetos-python-ia-simbolica",
+      "unit_key": "tema-09-aplicacoes",
+      "name": "Projetos em Python com IA simbólica",
+      "description": "Integração prática dos conceitos simbólicos em projetos implementados em Python.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Implementar projetos em Python."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-livro-digital-2026-2",
+        "source_name": "Inteligência Artificial Simbólica — Livro Digital",
+        "source_type": "OFFICIAL_BOOK_WITH_ATLAS_METADATA",
+        "source_reference": "UNIASSELVI — Livro Digital da disciplina. Conteúdo/objetivos institucionais; importance, difficulty e estimated_minutes são valores operacionais provisórios do ATLAS, não pesos oficiais.",
+        "source_page": 287
+      },
+      "parent_key": "aplicacoes-ia-simbolica"
+    },
+    {
+      "key": "arvore-de-decisao-pratica",
+      "unit_key": "tema-09-aplicacoes",
+      "name": "Prática de Árvore de Decisão",
+      "description": "Prática institucional de classificação com árvore de decisão, enfatizando estrutura, interpretabilidade e aprendizado supervisionado.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Compreender a estrutura e o funcionamento de árvores de decisão.",
+        "Implementar um classificador simples com scikit-learn.",
+        "Relacionar aprendizado supervisionado a uma aplicação prática."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-pratica-arvore-de-decisao",
+        "source_name": "Prática de Árvore de Decisão",
+        "source_type": "OFFICIAL_LAB_MANUAL_WITH_ATLAS_METADATA",
+        "source_reference": "Manual da Prática Laboratorial — Inteligência Artificial Simbólica; metadados de importância/dificuldade/tempo são provisórios do ATLAS.",
+        "source_page": 1
+      },
+      "parent_key": "aplicacoes-ia-simbolica"
+    },
+    {
+      "key": "recomendacao-de-filmes-pratica",
+      "unit_key": "tema-09-aplicacoes",
+      "name": "Prática de Sistema de Recomendação de Filmes",
+      "description": "Prática institucional de recomendação baseada em avaliações de usuários e correlação, usando Python, Pandas e NumPy.",
+      "importance": 0.5,
+      "difficulty": 0.5,
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Compreender a lógica de sistemas de recomendação.",
+        "Implementar um algoritmo simples baseado em avaliações de usuários.",
+        "Relacionar teoria de IA com uma aplicação prática."
+      ],
+      "provenance": {
+        "source_id": "uniasselvi-ia-simbolica-pratica-recomendacao-filmes",
+        "source_name": "Prática de Sistema de Recomendação de Filmes",
+        "source_type": "OFFICIAL_LAB_MANUAL_WITH_ATLAS_METADATA",
+        "source_reference": "Manual da Prática Laboratorial — Inteligência Artificial Simbólica; metadados de importância/dificuldade/tempo são provisórios do ATLAS.",
+        "source_page": 1
+      },
+      "parent_key": "aplicacoes-ia-simbolica"
+    }
+  ],
+  "dependencies": [
+    {
+      "concept_key": "espaco-de-estados",
+      "prerequisite_key": "formulacao-de-problemas-ia",
+      "dependency_strength": 0.9,
+      "is_essential": true,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "objetivos-em-problemas-ia",
+      "prerequisite_key": "formulacao-de-problemas-ia",
+      "dependency_strength": 0.9,
+      "is_essential": true,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "logica-proposicional",
+      "prerequisite_key": "paradigma-simbolico",
+      "dependency_strength": 0.9,
+      "is_essential": true,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "logica-de-predicados",
+      "prerequisite_key": "logica-proposicional",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "expressoes-logicas-python",
+      "prerequisite_key": "logica-proposicional",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "algoritmos-de-busca",
+      "prerequisite_key": "espaco-de-estados",
+      "dependency_strength": 0.9,
+      "is_essential": true,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "bfs",
+      "prerequisite_key": "algoritmos-de-busca",
+      "dependency_strength": 0.9,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "dfs",
+      "prerequisite_key": "algoritmos-de-busca",
+      "dependency_strength": 0.9,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "busca-heuristica",
+      "prerequisite_key": "algoritmos-de-busca",
+      "dependency_strength": 0.9,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "a-star",
+      "prerequisite_key": "busca-heuristica",
+      "dependency_strength": 0.9,
+      "is_essential": true,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "complexidade-e-comparacao-buscas",
+      "prerequisite_key": "algoritmos-de-busca",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "inferencia-logica",
+      "prerequisite_key": "logica-proposicional",
+      "dependency_strength": 0.9,
+      "is_essential": true,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "O livro trata lógica proposicional e de predicados como métodos formais essenciais para representação e inferência.",
+        "source_page": 173
+      }
+    },
+    {
+      "concept_key": "inferencia-logica",
+      "prerequisite_key": "logica-de-predicados",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "O livro trata lógica proposicional e de predicados como métodos formais essenciais para representação e inferência.",
+        "source_page": 173
+      }
+    },
+    {
+      "concept_key": "sistemas-de-inferencia-python",
+      "prerequisite_key": "inferencia-logica",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "agentes-inteligentes",
+      "prerequisite_key": "algoritmos-de-busca",
+      "dependency_strength": 0.7,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "O livro pede revisão de BFS e A* antes do tema de agentes e os relaciona à tomada de decisão.",
+        "source_page": 190
+      }
+    },
+    {
+      "concept_key": "percepcao-e-acao",
+      "prerequisite_key": "agentes-inteligentes",
+      "dependency_strength": 0.9,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "representacao-de-estados-agentes",
+      "prerequisite_key": "agentes-inteligentes",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "modelagem-comportamento-agentes",
+      "prerequisite_key": "representacao-de-estados-agentes",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "redes-semanticas",
+      "prerequisite_key": "representacao-de-conhecimento",
+      "dependency_strength": 0.9,
+      "is_essential": true,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "nos-e-arestas-redes-semanticas",
+      "prerequisite_key": "redes-semanticas",
+      "dependency_strength": 0.9,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "relacoes-hierarquicas-redes-semanticas",
+      "prerequisite_key": "nos-e-arestas-redes-semanticas",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "redes-semanticas-python",
+      "prerequisite_key": "redes-semanticas",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "frames",
+      "prerequisite_key": "representacao-de-conhecimento",
+      "dependency_strength": 0.9,
+      "is_essential": true,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "slots-e-facetas",
+      "prerequisite_key": "frames",
+      "dependency_strength": 0.9,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "heranca-em-frames",
+      "prerequisite_key": "frames",
+      "dependency_strength": 0.9,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "estrutura-hierarquica-frames",
+      "prerequisite_key": "heranca-em-frames",
+      "dependency_strength": 0.8,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "aplicacoes-ia-simbolica",
+      "prerequisite_key": "redes-semanticas",
+      "dependency_strength": 0.7,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "aplicacoes-ia-simbolica",
+      "prerequisite_key": "frames",
+      "dependency_strength": 0.7,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "otimizacao-algoritmos-simbolicos",
+      "prerequisite_key": "algoritmos-de-busca",
+      "dependency_strength": 0.7,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "projetos-python-ia-simbolica",
+      "prerequisite_key": "python-para-ia-simbolica",
+      "dependency_strength": 0.7,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "arvore-de-decisao-pratica",
+      "prerequisite_key": "python-para-ia-simbolica",
+      "dependency_strength": 0.6,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    },
+    {
+      "concept_key": "recomendacao-de-filmes-pratica",
+      "prerequisite_key": "python-para-ia-simbolica",
+      "dependency_strength": 0.6,
+      "is_essential": false,
+      "provenance": {
+        "source_id": "atlas-pedagogical-mapping-ia-simbolica-2026-2",
+        "source_name": "ATLAS — Mapeamento Pedagógico",
+        "source_type": "PEDAGOGICAL_INFERENCE",
+        "source_reference": "Mapeamento pedagógico do ATLAS derivado da sequência e das revisões explícitas do material institucional."
+      }
+    }
+  ],
+  "assessments": [],
+  "exercises": [],
+  "explanations": []
+}
