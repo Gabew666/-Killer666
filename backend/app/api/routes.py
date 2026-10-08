@@ -2,6 +2,7 @@ from datetime import datetime
 
 from fastapi import APIRouter, HTTPException, Request
 from sqlalchemy import select, text
+from sqlalchemy.exc import SQLAlchemyError
 
 from app.models import Subject
 from app.schemas.domain import (
@@ -18,8 +19,11 @@ router = APIRouter()
 
 @router.get("/health")
 def health(request: Request):
-    with request.app.state.session_factory() as db:
-        db.execute(text("SELECT 1"))
+    try:
+        with request.app.state.session_factory() as db:
+            db.execute(text("SELECT 1"))
+    except SQLAlchemyError:
+        raise HTTPException(503, "Banco de dados indisponível") from None
     return {"status": "ok", "database": "ok", "phase": 1,
             "timezone": request.app.state.settings.timezone,
             "content_mode": request.app.state.settings.content_mode}

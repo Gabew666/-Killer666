@@ -20,3 +20,15 @@ def test_cors_allows_configured_frontend_and_rejects_other_origins(settings):
 def test_cors_rejects_wildcard():
     with pytest.raises(ValueError, match="origens HTTP"):
         Settings(database_url="sqlite:///:memory:", cors_origins=("*",))
+
+
+@pytest.mark.parametrize("origin", ["https://*.example.com", "https://example.com/path",
+                                    "https://user:secret@example.com", "https://"])
+def test_cors_rejects_non_origins(origin):
+    with pytest.raises(ValueError, match="origens HTTP"):
+        Settings(database_url="sqlite:///:memory:", cors_origins=(origin,))
+
+
+def test_cors_env_parses_multiple_explicit_origins(monkeypatch):
+    monkeypatch.setenv("ATLAS_CORS_ORIGINS", "https://atlas.example.com, https://preview.example.com")
+    assert Settings.from_env().cors_origins == ("https://atlas.example.com", "https://preview.example.com")

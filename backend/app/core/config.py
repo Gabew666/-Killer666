@@ -2,6 +2,7 @@ from dataclasses import dataclass
 import os
 from pathlib import Path
 from typing import Literal
+from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo
 
 
@@ -45,22 +46,31 @@ class Settings:
     timezone: str = "America/Sao_Paulo"
     cors_origins: tuple[str, ...] = ("http://localhost:3000", "http://127.0.0.1:3000")
     content_mode: Literal["provisional", "real"] = "provisional"
+    schema_mode: Literal["auto", "migrations"] = "auto"
 
     def __post_init__(self) -> None:
         ZoneInfo(self.timezone)  # Falha cedo se houver configuração inválida.
-        if any(origin == "*" or not origin.startswith(("http://", "https://")) for origin in self.cors_origins):
-            raise ValueError("ATLAS_CORS_ORIGINS exige origens HTTP(S) explícitas")
+        for origin in self.cors_origins:
+            parsed = urlsplit(origin)
+            if ("*" in origin or parsed.scheme not in ("http", "https") or not parsed.hostname
+                    or parsed.path or parsed.query or parsed.fragment or parsed.username or parsed.password):
+                raise ValueError("ATLAS_CORS_ORIGINS exige origens HTTP(S) explícitas, sem caminhos ou credenciais")
         if self.content_mode not in ("provisional", "real"):
             raise ValueError("ATLAS_CONTENT_MODE deve ser provisional ou real")
+        if self.schema_mode not in ("auto", "migrations"):
+            raise ValueError("ATLAS_SCHEMA_MODE deve ser auto ou migrations")
 
     @classmethod
     def from_env(cls) -> "Settings":
         path = Path(__file__).resolve().parents[3] / "data" / "atlas.db"
+        database_url = os.getenv("ATLAS_DATABASE_URL", f"sqlite:///{path}")
         return cls(
-            os.getenv("ATLAS_DATABASE_URL", f"sqlite:///{path}"),
+            database_url,
             os.getenv("ATLAS_TIMEZONE", "America/Sao_Paulo"),
             tuple(origin.strip() for origin in os.getenv(
                 "ATLAS_CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
             ).split(",") if origin.strip()),
             os.getenv("ATLAS_CONTENT_MODE", "provisional"),
+            os.getenv("ATLAS_SCHEMA_MODE", "migrations" if database_url.startswith(
+                ("postgres://", "postgresql://", "postgresql+")) else "auto"),
         )

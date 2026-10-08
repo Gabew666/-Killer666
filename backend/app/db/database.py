@@ -9,15 +9,20 @@ from app.models import Base
 
 
 def create_database(url: str) -> tuple[Engine, sessionmaker[Session]]:
+    # Hosted services often provide postgres:// or driverless postgresql://.
+    if url.startswith("postgres://"):
+        url = "postgresql://" + url[len("postgres://"):]
     parsed = make_url(url)
-    kwargs: dict = {}
+    if parsed.drivername == "postgresql":
+        parsed = parsed.set(drivername="postgresql+psycopg")
+    kwargs: dict = {"pool_pre_ping": True}
     if parsed.get_backend_name() == "sqlite":
         kwargs["connect_args"] = {"check_same_thread": False, "timeout": 15}
         if parsed.database in (None, "", ":memory:"):
             kwargs["poolclass"] = StaticPool
         else:
             Path(parsed.database).parent.mkdir(parents=True, exist_ok=True)
-    engine = create_engine(url, **kwargs)
+    engine = create_engine(parsed, **kwargs)
     if parsed.get_backend_name() == "sqlite":
         @event.listens_for(engine, "connect")
         def set_sqlite_options(connection, _record):

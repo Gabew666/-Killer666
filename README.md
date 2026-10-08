@@ -40,7 +40,7 @@ cp .env.local.example .env.local
 npm run dev
 ```
 
-Abra `http://localhost:3000`. `NEXT_PUBLIC_ATLAS_API_URL` aponta para o FastAPI visto pelo navegador (default local `http://localhost:8000`); ajuste antes do build para outro ambiente. `ATLAS_CORS_ORIGINS` no backend aceita origens explícitas separadas por vírgula, como `https://atlas.exemplo.com`; o default só libera `localhost:3000` e `127.0.0.1:3000`. Não use `*` em produção. Para validar: `cd frontend && npm test && npm run build`; os testes do backend continuam em `cd backend && .venv/bin/python -m pytest`.
+Abra `http://localhost:3000`. `NEXT_PUBLIC_ATLAS_API_URL` aponta para o FastAPI visto pelo navegador (default local `http://localhost:8000` somente em desenvolvimento); é obrigatório configurar explicitamente no build de produção e no `npm start`. `ATLAS_CORS_ORIGINS` no backend aceita origens explícitas separadas por vírgula, como `https://atlas.exemplo.com`; o default só libera `localhost:3000` e `127.0.0.1:3000`. Não use `*` em produção. Para validar: `cd frontend && npm test && NEXT_PUBLIC_ATLAS_API_URL=https://api.example.com npm run build` (URL placeholder apenas para validação); os testes do backend continuam em `cd backend && .venv/bin/python -m pytest`.
 
 O dashboard mostra disciplinas e um resumo do estado, inicia sessões de 20/40/60 minutos e oferece retomada pelo ID guardado no `localStorage` deste navegador. A tela de sessão responde ou avança atividades e conclui automaticamente quando não resta atividade. `/progress` mostra mastery somente quando medido, junto da confiança e quantidade de evidências. Respostas `STRUCTURED` usam JSON conforme o enunciado. Se não houver conteúdo suficiente para montar sessão, a tela mostra o erro explicitamente.
 
@@ -72,7 +72,7 @@ docs/
 data/                     # SQLite local
 ```
 
-O frontend usa `student_id=1` temporariamente, não tem autenticação e não busca sessões antigas fora do ID salvo no navegador. O manifesto permite instalação básica; não há service worker nem uso offline. Para bancos SQLite v0.1 existentes, a inicialização acrescenta colunas opcionais do runtime, currículo e proveniência de exercícios, preservando dados. Isso ainda não é um sistema de migrations versionadas; faça backup antes de atualizações futuras. PostgreSQL ainda não foi validado.
+O frontend usa `student_id=1` temporariamente, não tem autenticação e não busca sessões antigas fora do ID salvo no navegador. O manifesto permite instalação básica; não há service worker nem uso offline. Para bancos SQLite v0.1 existentes, a inicialização acrescenta colunas opcionais do runtime, currículo e proveniência de exercícios, preservando dados. Alembic agora oferece baseline versionada compatível com o schema atual; PostgreSQL 16 foi validado com persistência após reinício. Em produção use migrations antes de iniciar a API. Veja [deploy e configuração](docs/DEPLOYMENT.md).
 
 Veja [arquitetura](docs/ARCHITECTURE.md), [modelo de aprendizado](docs/LEARNING_MODEL.md), [grafo](docs/KNOWLEDGE_GRAPH.md), [pacote curricular](docs/CURRICULUM_PACKAGE.md) e [roadmap](docs/ROADMAP.md). Mastery é uma estimativa heurística; consulte sempre a confiança da evidência e sua quantidade.
 

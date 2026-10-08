@@ -5,3 +5,5 @@ pydantic==2.11.5
 networkx==3.4.2
 pytest==8.3.5
 httpx==0.28.1
+alembic==1.16.5
+psycopg[binary]==3.2.10

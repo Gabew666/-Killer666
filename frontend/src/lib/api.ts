@@ -1,3 +1,5 @@
+import { resolveApiUrl } from "./api-url.ts";
+
 export type Subject = { id: number; name: string };
 
 export type StudentState = {
@@ -71,7 +73,7 @@ export class ApiError extends Error {
   }
 }
 
-const baseUrl = (process.env.NEXT_PUBLIC_ATLAS_API_URL || "http://localhost:8000").replace(/\/+$/, "");
+const baseUrl = resolveApiUrl(process.env.NEXT_PUBLIC_ATLAS_API_URL, process.env.NODE_ENV === "production");
 
 export function buildStartPayload(availableMinutes: number) {
   if (![20, 40, 60].includes(availableMinutes)) {
