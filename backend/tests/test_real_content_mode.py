@@ -80,16 +80,16 @@ def test_real_mode_empty_database_restart_preserves_progress_and_frontend_contra
         assert all({"concept_id", "concept", "mastery", "evidence_count",
                     "evidence_confidence", "next_review_at"} <= state.keys() for state in states)
         response = client.post("/sessions/start", json={"student_id": 1, "available_minutes": 20})
-        assert response.status_code == 422
-        assert "faltam exercícios diagnósticos" in response.json()["detail"]
+        assert response.status_code == 201
+        assert response.json()["current_activity"]["exercise"] is not None
     engine, factory = create_database(settings.database_url)
     with factory.begin() as db:
         assert (_count(db, Subject), _count(db, CurriculumUnit), _count(db, Concept),
-                _count(db, ConceptDependency), _count(db, Assessment), _count(db, Exercise)) == (1, 9, 40, 32, 0, 0)
+                _count(db, ConceptDependency), _count(db, Assessment), _count(db, Exercise)) == (1, 9, 40, 32, 0, 28)
         expected_units = {item["key"] for item in json.loads(REAL_CURRICULUM_PATH.read_text(encoding="utf-8"))["units"]}
         assert set(db.scalars(select(CurriculumUnit.key))) == expected_units
         assert _count(db, CurriculumPackageRecord) == 1
-        assert _count(db, StudySession) == 0 and _count(db, StudentConceptState) == 0
+        assert _count(db, StudySession) == 1 and _count(db, StudentConceptState) == 0
         assert db.scalar(select(Subject).where(Subject.name == "IA Simbólica")) is None
         concept = db.scalar(select(Concept).where(Concept.slug == "bfs"))
         state = StudentConceptState(student_id=1, concept_id=concept.id, mastery=0.71, retention=0.8,
@@ -103,6 +103,7 @@ def test_real_mode_empty_database_restart_preserves_progress_and_frontend_contra
     with factory() as db:
         assert (_count(db, Subject), _count(db, CurriculumUnit), _count(db, Concept),
                 _count(db, ConceptDependency), _count(db, CurriculumPackageRecord)) == (1, 9, 40, 32, 1)
+        assert _count(db, Exercise) == 28
         saved = db.get(StudentConceptState, (1, concept.id))
         assert (saved.mastery, saved.retention, saved.evidence_count, saved.evidence_confidence) == (0.71, 0.8, 4, 0.6)
         assert db.scalar(select(ReviewSchedule).where(ReviewSchedule.concept_id == concept.id)).stage == 2
@@ -159,8 +160,7 @@ def test_authored_diagnostics_use_only_real_concepts_and_derive_source(tmp_path)
     engine.dispose()
     with TestClient(create_app(settings)) as client:
         response = client.post("/sessions/start", json={"student_id": 1, "available_minutes": 20})
-        assert response.status_code == 422
-        assert "1/14" in response.json()["detail"]
+        assert response.status_code == 201
 
 
 def test_real_diagnostic_can_start_when_all_targets_have_authored_test_questions(tmp_path):
@@ -171,7 +171,7 @@ def test_real_diagnostic_can_start_when_all_targets_have_authored_test_questions
     with factory.begin() as db:
         for key in DIAGNOSTIC_TARGET_KEYS:
             register_atlas_diagnostic(db, _question(key))
-        assert _count(db, Exercise) == 14
+        assert _count(db, Exercise) == 42
         assert _count(db, StudentConceptState) == 0
     engine.dispose()
     with TestClient(create_app(settings)) as client:

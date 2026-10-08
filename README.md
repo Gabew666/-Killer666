@@ -10,7 +10,7 @@ cd backend
 ATLAS_CONTENT_MODE=real ATLAS_DATABASE_URL=sqlite:///../data/atlas-real.db .venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-O bootstrap recusa misturar o currículo real com o seed provisório e preserva o banco antigo sem apagá-lo. O modo `real` cria apenas o aluno local `student_id=1` se ainda não existir. Enquanto faltarem questões diagnósticas autorais, `/sessions/start` responde 422 com a cobertura ausente; o dashboard mostra o estado de falta de exercícios. Nenhum exercício provisório é tratado como oficial.
+O bootstrap recusa misturar o currículo real com o seed provisório e preserva o banco antigo sem apagá-lo. O modo `real` cria apenas o aluno local `student_id=1` se ainda não existir. O modo real carrega também 28 questões autorais do ATLAS (duas por alvo) do pacote diagnóstico separado. `/sessions/start` já permite diagnóstico; se faltar a cobertura mínima, responde 422 e o dashboard mostra a falta de exercícios. Nenhum exercício provisório é tratado como oficial.
 
 Currículos reais podem ser preparados como pacotes JSON versionados e validados antes da importação. O [exemplo](examples/curriculum_package.example.json) é **DEMONSTRAÇÃO fictícia**, não uma ementa oficial. O conteúdo do seed provisório não foi substituído.
 

@@ -1,0 +1,431 @@
+{
+  "content_type": "ATLAS_AUTHORED_DIAGNOSTIC",
+  "version": "0.1.0",
+  "curriculum_package_id": "uniasselvi-ia-simbolica-2026-2",
+  "description": "Questões autorais do ATLAS para diagnóstico da disciplina. Não são questões oficiais da instituição nem da prova. Proveniência institucional refere-se somente aos conceitos; é derivada no registro.",
+  "questions": [
+    {
+      "key": "ias-0.1-fundamentos-ia-simbolica-1",
+      "concept_key": "fundamentos-ia-simbolica",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Qual descrição caracteriza uma abordagem de IA simbólica?",
+      "options": [
+        "Representar fatos e regras explícitas para raciocinar.",
+        "Substituir todo conhecimento por escolhas aleatórias.",
+        "Impedir o uso de qualquer representação de conhecimento."
+      ],
+      "answer_spec": {
+        "correct_index": 0
+      },
+      "explanation": "A abordagem simbólica representa conhecimento explicitamente e opera sobre essas representações.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-fundamentos-ia-simbolica-2",
+      "concept_key": "fundamentos-ia-simbolica",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Um sistema usa a regra “se o pedido está pago e há estoque, autorize o envio”. Como explicar uma autorização?",
+      "options": [
+        "Ela independe dos fatos do pedido.",
+        "Mostrar que os fatos satisfazem a condição da regra aplicada.",
+        "Dizer apenas que o resultado foi sorteado."
+      ],
+      "answer_spec": {
+        "correct_index": 1
+      },
+      "explanation": "Uma cadeia explícita de fatos e regras permite justificar a conclusão simbólica.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-formulacao-de-problemas-ia-1",
+      "concept_key": "formulacao-de-problemas-ia",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Para formular um problema de busca, qual conjunto é essencial?",
+      "options": [
+        "Cor da interface e nome do programa.",
+        "Estado inicial, ações possíveis e teste de objetivo.",
+        "Apenas a resposta final, sem ações."
+      ],
+      "answer_spec": {
+        "correct_index": 1
+      },
+      "explanation": "A formulação define de onde partir, quais transições são possíveis e como reconhecer o objetivo.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-formulacao-de-problemas-ia-2",
+      "concept_key": "formulacao-de-problemas-ia",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Um robô deve levar uma caixa da sala A à sala B. Qual é um teste de objetivo adequado?",
+      "options": [
+        "O robô executou qualquer movimento.",
+        "O robô visitou a sala A.",
+        "A caixa está na sala B."
+      ],
+      "answer_spec": {
+        "correct_index": 2
+      },
+      "explanation": "O teste deve reconhecer o resultado desejado, e não apenas uma ação intermediária.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-espaco-de-estados-1",
+      "concept_key": "espaco-de-estados",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "O que um nó costuma representar no espaço de estados de um problema?",
+      "options": [
+        "Uma configuração possível do problema.",
+        "Necessariamente uma linha do código.",
+        "Sempre o algoritmo inteiro."
+      ],
+      "answer_spec": {
+        "correct_index": 0
+      },
+      "explanation": "Estados representam configurações; as ações conectam estados por transições.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-espaco-de-estados-2",
+      "concept_key": "espaco-de-estados",
+      "exercise_type": "NUMERIC",
+      "prompt": "Dois interruptores independentes podem estar ligados ou desligados. Se um estado registra ambos, quantos estados distintos existem?",
+      "answer_spec": {
+        "value": 4,
+        "tolerance": 0
+      },
+      "explanation": "Cada interruptor tem duas possibilidades: 2 × 2 = 4 configurações.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-logica-proposicional-1",
+      "concept_key": "logica-proposicional",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Se p significa “o sensor está ativo” e q significa “há energia”, o que p ∧ q exige?",
+      "options": [
+        "Somente p verdadeiro.",
+        "Pelo menos um deles verdadeiro.",
+        "Ambos verdadeiros."
+      ],
+      "answer_spec": {
+        "correct_index": 2
+      },
+      "explanation": "A conjunção é verdadeira somente quando as duas proposições são verdadeiras.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-logica-proposicional-2",
+      "concept_key": "logica-proposicional",
+      "exercise_type": "TRUE_FALSE",
+      "prompt": "Com p verdadeiro e q falso, a expressão (p ∨ q) ∧ ¬q é verdadeira.",
+      "answer_spec": {
+        "value": true
+      },
+      "explanation": "p ∨ q é verdadeiro e ¬q também é verdadeiro; a conjunção é verdadeira.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-logica-de-predicados-1",
+      "concept_key": "logica-de-predicados",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "O que a lógica de predicados permite expressar diretamente além de proposições simples?",
+      "options": [
+        "Propriedades de objetos, relações e quantificação.",
+        "Somente números sem relações.",
+        "Apenas uma proposição sem estrutura interna."
+      ],
+      "answer_spec": {
+        "correct_index": 0
+      },
+      "explanation": "Predicados descrevem propriedades e relações; quantificadores expressam alcance sobre objetos.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-logica-de-predicados-2",
+      "concept_key": "logica-de-predicados",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Qual fórmula expressa “Todo sensor é um dispositivo”? Sensor(x) e Dispositivo(x) têm seus sentidos usuais.",
+      "options": [
+        "∃x (Sensor(x) ∧ Dispositivo(x))",
+        "∀x (Sensor(x) → Dispositivo(x))",
+        "∀x (Dispositivo(x) → Sensor(x))"
+      ],
+      "answer_spec": {
+        "correct_index": 1
+      },
+      "explanation": "A implicação universal afirma que cada objeto que é sensor também é dispositivo, sem inverter a relação.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-bfs-1",
+      "concept_key": "bfs",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Como a busca em largura (BFS) escolhe normalmente os próximos nós a expandir?",
+      "options": [
+        "Pelo ramo mais profundo antes dos demais.",
+        "Por níveis, usando uma fila FIFO.",
+        "Sempre pela menor estimativa heurística."
+      ],
+      "answer_spec": {
+        "correct_index": 1
+      },
+      "explanation": "A fila FIFO mantém a exploração por profundidade crescente.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-bfs-2",
+      "concept_key": "bfs",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "R tem filhos A e B, nessa ordem. A tem filho C e B tem filho D. Sem repetições, qual é a ordem de expansão da BFS iniciada em R?",
+      "options": [
+        "R, A, C, B, D",
+        "R, B, D, A, C",
+        "R, A, B, C, D"
+      ],
+      "answer_spec": {
+        "correct_index": 2
+      },
+      "explanation": "A BFS expande o nível A/B antes do nível C/D, respeitando a ordem dos filhos.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-dfs-1",
+      "concept_key": "dfs",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Como a busca em profundidade (DFS) explora normalmente uma árvore?",
+      "options": [
+        "Segue um ramo em profundidade e retrocede quando necessário.",
+        "Expande sempre todos os nós de um nível antes de descer.",
+        "Escolhe necessariamente o caminho de menor custo."
+      ],
+      "answer_spec": {
+        "correct_index": 0
+      },
+      "explanation": "DFS aprofunda um ramo antes de retornar para alternativas pendentes.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-dfs-2",
+      "concept_key": "dfs",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "R tem filhos A e B, nessa ordem. A tem filho C e B tem filho D. Uma DFS visita primeiro o filho mais à esquerda. Qual é a ordem de expansão?",
+      "options": [
+        "R, A, B, C, D",
+        "R, A, C, B, D",
+        "R, C, D, A, B"
+      ],
+      "answer_spec": {
+        "correct_index": 1
+      },
+      "explanation": "Depois de A, DFS aprofunda até C antes de voltar a R e seguir por B.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-busca-heuristica-1",
+      "concept_key": "busca-heuristica",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Em busca informada, o que h(n) costuma estimar?",
+      "options": [
+        "O custo restante de n até um objetivo.",
+        "O número exato de linhas do programa.",
+        "Somente o custo já percorrido até n."
+      ],
+      "answer_spec": {
+        "correct_index": 0
+      },
+      "explanation": "A heurística estima o esforço ou custo restante e orienta a exploração.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-busca-heuristica-2",
+      "concept_key": "busca-heuristica",
+      "exercise_type": "NUMERIC",
+      "prompt": "Em uma grade, cada passo horizontal ou vertical custa 1 e não há diagonais. Qual é a distância Manhattan de (1, 2) até (4, 6)?",
+      "answer_spec": {
+        "value": 7,
+        "tolerance": 0
+      },
+      "explanation": "A estimativa soma diferenças absolutas: |4−1| + |6−2| = 3 + 4 = 7.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-a-star-1",
+      "concept_key": "a-star",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Na forma usual de A*, como se calcula f(n)? g(n) é o custo já percorrido e h(n) a estimativa restante.",
+      "options": [
+        "f(n) = g(n) − h(n)",
+        "f(n) = g(n) + h(n)",
+        "f(n) = h(n), ignorando g(n)"
+      ],
+      "answer_spec": {
+        "correct_index": 1
+      },
+      "explanation": "A* combina custo acumulado e estimativa do custo restante.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-a-star-2",
+      "concept_key": "a-star",
+      "exercise_type": "SHORT_EXACT",
+      "prompt": "A fronteira de A* contém apenas X com g=2, h=6 e Y com g=5, h=1. Usando menor f=g+h, qual nó deve ser escolhido? Responda X ou Y.",
+      "answer_spec": {
+        "accepted": [
+          "Y"
+        ]
+      },
+      "explanation": "f(X)=8 e f(Y)=6; o menor valor é o de Y.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-representacao-de-conhecimento-1",
+      "concept_key": "representacao-de-conhecimento",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Qual é a finalidade de representar conhecimento em um sistema de IA?",
+      "options": [
+        "Organizar informação para apoiar raciocínio e decisões.",
+        "Guardar símbolos sem qualquer significado ou relação.",
+        "Eliminar todos os fatos disponíveis."
+      ],
+      "answer_spec": {
+        "correct_index": 0
+      },
+      "explanation": "Representações tornam fatos, conceitos e relações utilizáveis pelo sistema.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-representacao-de-conhecimento-2",
+      "concept_key": "representacao-de-conhecimento",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Um sistema precisa usar o fato “Lia é técnica” e a regra “todo técnico pode inspecionar”. Qual representação favorece inferir uma permissão?",
+      "options": [
+        "Uma imagem decorativa sem descrição.",
+        "Uma lista apenas com cores.",
+        "O fato Tecnica(Lia) e a regra Tecnica(x) → PodeInspecionar(x)."
+      ],
+      "answer_spec": {
+        "correct_index": 2
+      },
+      "explanation": "Fato e regra explícitos permitem derivar PodeInspecionar(Lia).",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-inferencia-logica-1",
+      "concept_key": "inferencia-logica",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Qual situação exemplifica inferência lógica?",
+      "options": [
+        "Copiar uma frase sem usar relações ou regras.",
+        "Derivar uma conclusão a partir de fatos e regras.",
+        "Sortear uma resposta sem considerar premissas."
+      ],
+      "answer_spec": {
+        "correct_index": 1
+      },
+      "explanation": "Inferência aplica relações lógicas às premissas para obter conclusões.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-inferencia-logica-2",
+      "concept_key": "inferencia-logica",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Há o fato TemperaturaAlta e as regras TemperaturaAlta → Alerta e Alerta → Verificar. Qual conclusão pode ser derivada?",
+      "options": [
+        "Verificar.",
+        "¬Alerta.",
+        "¬TemperaturaAlta."
+      ],
+      "answer_spec": {
+        "correct_index": 0
+      },
+      "explanation": "A primeira regra produz Alerta; a segunda permite concluir Verificar.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-agentes-inteligentes-1",
+      "concept_key": "agentes-inteligentes",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Qual conjunto descreve o ciclo básico de um agente inteligente?",
+      "options": [
+        "Somente armazenar arquivos sem agir.",
+        "Agir sem receber informação do ambiente.",
+        "Perceber o ambiente, processar informação e agir."
+      ],
+      "answer_spec": {
+        "correct_index": 2
+      },
+      "explanation": "Agentes recebem percepções e escolhem ações no ambiente.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-agentes-inteligentes-2",
+      "concept_key": "agentes-inteligentes",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Um termostato lê a temperatura e liga o aquecedor quando necessário. Qual alternativa distingue percepção e ação?",
+      "options": [
+        "Percepção: ler temperatura; ação: ligar aquecedor.",
+        "Percepção: ligar aquecedor; ação: ler temperatura.",
+        "Ambas são apenas armazenamento de dados."
+      ],
+      "answer_spec": {
+        "correct_index": 0
+      },
+      "explanation": "A leitura informa o agente sobre o ambiente; ligar o aquecedor modifica esse ambiente.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-redes-semanticas-1",
+      "concept_key": "redes-semanticas",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Como uma rede semântica representa conhecimento tipicamente?",
+      "options": [
+        "Somente como uma sequência sem relações.",
+        "Por nós e ligações rotuladas que representam relações.",
+        "Apenas como valores aleatórios."
+      ],
+      "answer_spec": {
+        "correct_index": 1
+      },
+      "explanation": "Nós representam entidades ou conceitos; ligações representam relações entre eles.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-redes-semanticas-2",
+      "concept_key": "redes-semanticas",
+      "exercise_type": "TRUE_FALSE",
+      "prompt": "Uma rede contém Canário É-UM Ave e Ave É-UM Animal. Usando uma regra explícita de transitividade para É-UM, podemos concluir Canário É-UM Animal.",
+      "answer_spec": {
+        "value": true
+      },
+      "explanation": "A conclusão segue da regra de transitividade especificada para essa relação; não se presume transitividade de qualquer ligação.",
+      "difficulty": 0.6
+    },
+    {
+      "key": "ias-0.1-frames-1",
+      "concept_key": "frames",
+      "exercise_type": "MULTIPLE_CHOICE",
+      "prompt": "Em representação por frames, o que são slots?",
+      "options": [
+        "Campos que organizam atributos ou relações de um objeto ou situação.",
+        "Nós que nunca podem ter valores.",
+        "Instruções para apagar conhecimento."
+      ],
+      "answer_spec": {
+        "correct_index": 0
+      },
+      "explanation": "Frames agrupam conhecimento em campos nomeados, chamados slots.",
+      "difficulty": 0.4
+    },
+    {
+      "key": "ias-0.1-frames-2",
+      "concept_key": "frames",
+      "exercise_type": "NUMERIC",
+      "prompt": "Um frame Veículo define rodas=4 como valor padrão. O frame Bicicleta herda Veículo, mas define explicitamente rodas=2. Se o valor específico substitui o padrão, qual é o valor de rodas em Bicicleta?",
+      "answer_spec": {
+        "value": 2,
+        "tolerance": 0
+      },
+      "explanation": "O valor explícito do frame específico substitui o padrão herdado: 2.",
+      "difficulty": 0.6
+    }
+  ]
+}

@@ -12,6 +12,7 @@ from app.models import (
 )
 from app.seed import seed_database
 from app.services.curriculum import CurriculumImporter, CurriculumValidator
+from app.services.diagnostics import load_diagnostic_package
 
 
 class ContentModeConflict(ValueError):
@@ -78,6 +79,7 @@ def bootstrap_content(db: Session, mode: str) -> None:
         raise ContentModeConflict("package_id do currículo real inesperado")
     _assert_real_isolated(db)
     CurriculumImporter().import_package(db, package)
+    load_diagnostic_package(db)
     _assert_real_isolated(db)
     if db.get(Student, 1) is None:
         db.add(Student(id=1, name="Aluno 1"))
