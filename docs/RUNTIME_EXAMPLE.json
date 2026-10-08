@@ -1,0 +1,133 @@
+{
+  "profile": "Perfil sintético: heurística sem diagnóstico, A* fraco",
+  "available_minutes": 40,
+  "initial_planned_minutes": 36,
+  "trace": [
+    {
+      "concept": "Função heurística",
+      "activity_type": "RECALL",
+      "minutes": 4,
+      "remaining_before": 40,
+      "remaining_after": 36,
+      "correct": false,
+      "independent": true,
+      "decision": "INSERT_GUIDED_PRACTICE",
+      "reason": "Erro no diagnóstico: explicar antes de praticar novamente."
+    },
+    {
+      "concept": "Função heurística",
+      "activity_type": "EXPLANATION",
+      "minutes": 3,
+      "remaining_before": 36,
+      "remaining_after": 33
+    },
+    {
+      "concept": "Função heurística",
+      "activity_type": "GUIDED_EXERCISE",
+      "minutes": 3,
+      "remaining_before": 33,
+      "remaining_after": 30,
+      "correct": true,
+      "independent": false,
+      "decision": "ADVANCE",
+      "reason": "Resposta correta independente; continuar a sessão."
+    },
+    {
+      "concept": "Função heurística",
+      "activity_type": "RECALL",
+      "minutes": 4,
+      "remaining_before": 30,
+      "remaining_after": 26,
+      "correct": true,
+      "independent": true,
+      "decision": "ADVANCE",
+      "reason": "Resposta correta independente; continuar a sessão."
+    },
+    {
+      "concept": "Função heurística",
+      "activity_type": "ERROR_REVIEW",
+      "minutes": 2,
+      "remaining_before": 26,
+      "remaining_after": 24
+    },
+    {
+      "concept": "Função heurística",
+      "activity_type": "SUMMARY",
+      "minutes": 2,
+      "remaining_before": 24,
+      "remaining_after": 22
+    },
+    {
+      "concept": "A*",
+      "activity_type": "RECALL",
+      "minutes": 2,
+      "remaining_before": 22,
+      "remaining_after": 20
+    },
+    {
+      "concept": "A*",
+      "activity_type": "EXPLANATION",
+      "minutes": 4,
+      "remaining_before": 20,
+      "remaining_after": 16
+    },
+    {
+      "concept": "A*",
+      "activity_type": "GUIDED_EXERCISE",
+      "minutes": 3,
+      "remaining_before": 16,
+      "remaining_after": 13,
+      "correct": true,
+      "independent": true,
+      "decision": "ADVANCE",
+      "reason": "Resposta correta independente; continuar a sessão."
+    },
+    {
+      "concept": "A*",
+      "activity_type": "INDEPENDENT_EXERCISE",
+      "minutes": 6,
+      "remaining_before": 13,
+      "remaining_after": 7,
+      "correct": true,
+      "independent": true,
+      "decision": "ADVANCE",
+      "reason": "Resposta correta independente; continuar a sessão."
+    },
+    {
+      "concept": "A*",
+      "activity_type": "SUMMARY",
+      "minutes": 2,
+      "remaining_before": 7,
+      "remaining_after": 5
+    },
+    {
+      "concept": "Grafos",
+      "activity_type": "RECALL",
+      "minutes": 2,
+      "remaining_before": 5,
+      "remaining_after": 3
+    }
+  ],
+  "final_status": "COMPLETED",
+  "used_minutes": 37,
+  "remaining_minutes": 3,
+  "heuristic_review_due_at": "2026-10-12T22:00:00+00:00",
+  "skipped_activities": [
+    {
+      "type": "ERROR_REVIEW",
+      "reason": "Resposta correta independente; continuar a sessão."
+    },
+    {
+      "type": "INDEPENDENT_EXERCISE",
+      "reason": "Atividade substituída para respeitar o tempo disponível"
+    },
+    {
+      "type": "ERROR_REVIEW",
+      "reason": "Atividade substituída para respeitar o tempo disponível"
+    },
+    {
+      "type": "SUMMARY",
+      "reason": "Atividade substituída para respeitar o tempo disponível"
+    }
+  ]
+}

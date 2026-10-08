@@ -33,7 +33,7 @@ def test_diagnostic_for_unknown_or_low_evidence(builder, concept, now, state):
     assert [a.activity_type for a in block] == [ActivityType.RECALL, ActivityType.ERROR_REVIEW, ActivityType.SUMMARY]
     assert block[0].exercise_id == 101
     assert not any(a.activity_type == ActivityType.EXPLANATION for a in block)
-    assert block[-1].decision_after
+    assert block[0].decision_after
     assert sum(a.estimated_minutes for a in block) == 8
 
 

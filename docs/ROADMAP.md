@@ -2,9 +2,11 @@
 
 ## v0.1
 
-Fase 1: documentação, 13 entidades, SQLite, seed, KnowledgeGraph, avaliação determinística, MasteryEngine, ReviewScheduler, AdaptivePlanner explicável, testes A–J, API mínima e exemplos de sessão.
+Fase 1: documentação, 13 entidades, SQLite, seed, KnowledgeGraph, avaliação determinística, MasteryEngine, ReviewScheduler, AdaptivePlanner explicável, testes A–J e API mínima.
 
-Próximo marco: cadastro completo pela API, execução interativa de sessões, dashboard, resultados e mapa em lista com Next.js. Toda exibição de mastery deve trazer confiança e quantidade de evidências; não usar cor de domínio como sinônimo de certeza.
+Marco de runtime: Session Builder adaptativo, decisões após resposta, estados persistidos de sessão/atividade, orçamento restante, API de execução, testes S–AB e exemplo completo.
+
+Próximo marco: cadastro completo pela API, dashboard, resultados e mapa em lista com Next.js. Toda exibição de mastery deve trazer confiança e quantidade de evidências; não usar cor de domínio como sinônimo de certeza.
 
 ## Depois
 

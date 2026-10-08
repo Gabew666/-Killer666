@@ -143,3 +143,25 @@ class SessionPlan(Schema):
 class PlanRequest(Schema):
     student_id: int = Field(default=1, gt=0)
     available_minutes: int = Field(ge=10, le=240, strict=True)
+
+
+class SessionAnswerRequest(Schema):
+    activity_id: int = Field(gt=0)
+    answer: Any = Field(...)
+    hints_used: int = Field(default=0, ge=0, le=100)
+    response_time: float = Field(ge=0, le=86400, allow_inf_nan=False)
+    self_confidence: float | None = Field(default=None, ge=0, le=1)
+    actual_minutes: int | None = Field(default=None, ge=0, strict=True)
+
+    def attempt(self) -> AttemptInput:
+        return AttemptInput(answer=self.answer, hints_used=self.hints_used,
+                            response_time=self.response_time, self_confidence=self.self_confidence)
+
+
+class SessionAdvanceRequest(Schema):
+    activity_id: int = Field(gt=0)
+    actual_minutes: int | None = Field(default=None, ge=0, strict=True)
+
+
+class SessionFinishRequest(Schema):
+    abandon: bool = False

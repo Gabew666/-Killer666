@@ -165,11 +165,17 @@ def persist_plan(db: Session, plan: SessionPlan) -> StudySession:
     require_student(db, plan.student_id)
     session = StudySession(student_id=plan.student_id, available_minutes=plan.available_minutes,
                            planned_minutes=plan.planned_minutes, created_at=plan.generated_at,
+                           planned_at=plan.generated_at, used_minutes=0,
+                           strategy=plan.activities[0].mode if plan.activities else None,
                            status="PLANNED", plan_snapshot=plan.model_dump(mode="json"))
     db.add(session)
     db.flush()
     for index, activity in enumerate(plan.activities):
-        db.add(SessionActivity(session_id=session.id, position=index, concept_id=activity.concept_id,
+        db.add(SessionActivity(session_id=session.id, position=index, execution_order=float(index),
+                               block_index=activity.block,
+                               planned_at=plan.generated_at, status="PLANNED", executed=False,
+                               strategy=activity.mode, decision_after=activity.decision_after,
+                               concept_id=activity.concept_id,
                                exercise_id=activity.exercise_id, activity_type=activity.activity_type.value,
                                estimated_minutes=activity.estimated_minutes, instructions=activity.instructions))
     db.flush()

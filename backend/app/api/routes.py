@@ -4,10 +4,14 @@ from fastapi import APIRouter, HTTPException, Request
 from sqlalchemy import select, text
 
 from app.models import Subject
-from app.schemas.domain import PlanRequest, SessionPlan, StateData
+from app.schemas.domain import (
+    PlanRequest, SessionAdvanceRequest, SessionAnswerRequest, SessionFinishRequest,
+    SessionPlan, StateData,
+)
 from app.services.curriculum import assessments_data, concepts_data, dependencies_data, states_data
 from app.services.learning import generate_plan, require_student
 from app.services.mastery import MasteryEngine
+from app.services.session_runtime import SessionConflict, SessionNotFound, SessionRuntime
 
 router = APIRouter()
 
@@ -75,3 +79,77 @@ def plan_session(data: PlanRequest, request: Request):
                                  request.app.state.clock(), request.app.state.settings)
         except ValueError as exc:
             raise HTTPException(422, str(exc)) from exc
+
+
+@router.post("/sessions/start", status_code=201)
+def start_session(data: PlanRequest, request: Request):
+    now = request.app.state.clock()
+    runtime = SessionRuntime()
+    try:
+        with request.app.state.session_factory.begin() as db:
+            plan = generate_plan(db, data.student_id, data.available_minutes, now, request.app.state.settings)
+            study = runtime.start(db, plan, now)
+            return runtime.public_view(db, study)
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from exc
+
+
+@router.get("/sessions/{session_id}")
+def get_session(session_id: int, request: Request):
+    runtime = SessionRuntime()
+    with request.app.state.session_factory() as db:
+        try:
+            return runtime.public_view(db, runtime.require_session(db, session_id))
+        except SessionNotFound as exc:
+            raise HTTPException(404, str(exc)) from exc
+
+
+@router.post("/sessions/{session_id}/answer")
+def answer_session(session_id: int, data: SessionAnswerRequest, request: Request):
+    runtime = SessionRuntime()
+    try:
+        with request.app.state.session_factory.begin() as db:
+            study, attempt, decision = runtime.answer(db, session_id, data.activity_id,
+                data.attempt(), request.app.state.clock(), data.actual_minutes)
+            return {"session": runtime.public_view(db, study),
+                    "feedback": {"correct": attempt.correct, "score": attempt.score,
+                                 "error_type": attempt.error_type,
+                                 "message": "Resposta correta." if attempt.correct else "Resposta incorreta; revise o conceito.",
+                                 "attempt_kind": attempt.attempt_kind,
+                                 "is_independent": attempt.is_independent},
+                    "decision": {"action": decision.action, "reason": decision.reason,
+                                 "remaining_minutes": runtime.remaining(study)}}
+    except SessionNotFound as exc:
+        raise HTTPException(404, str(exc)) from exc
+    except SessionConflict as exc:
+        raise HTTPException(409, str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from exc
+
+
+@router.post("/sessions/{session_id}/advance")
+def advance_session(session_id: int, data: SessionAdvanceRequest, request: Request):
+    runtime = SessionRuntime()
+    try:
+        with request.app.state.session_factory.begin() as db:
+            study = runtime.advance(db, session_id, data.activity_id, request.app.state.clock(), data.actual_minutes)
+            return runtime.public_view(db, study)
+    except SessionNotFound as exc:
+        raise HTTPException(404, str(exc)) from exc
+    except SessionConflict as exc:
+        raise HTTPException(409, str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from exc
+
+
+@router.post("/sessions/{session_id}/finish")
+def finish_session(session_id: int, request: Request, data: SessionFinishRequest | None = None):
+    runtime = SessionRuntime()
+    try:
+        with request.app.state.session_factory.begin() as db:
+            study = runtime.finish(db, session_id, request.app.state.clock(), data.abandon if data else False)
+            return runtime.public_view(db, study)
+    except SessionNotFound as exc:
+        raise HTTPException(404, str(exc)) from exc
+    except SessionConflict as exc:
+        raise HTTPException(409, str(exc)) from exc

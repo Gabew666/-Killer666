@@ -84,5 +84,5 @@ class SessionBuilder:
         return [PlannedActivity(concept_id=concept.id, concept=concept.name, activity_type=kind,
                                 estimated_minutes=duration, instructions=instructions, block=block,
                                 mode=strategy, exercise_id=exercise_id,
-                                decision_after=strategy == "diagnostic" and index == len(parts) - 1)
+                                decision_after=strategy == "diagnostic" and index == 0)
                 for index, ((kind, instructions, exercise_id), duration) in enumerate(zip(parts, allocations))]
