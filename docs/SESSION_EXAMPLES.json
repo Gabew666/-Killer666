@@ -1,0 +1,1039 @@
+[
+  {
+    "scenario": "Sem diagnóstico",
+    "profile": "Nenhuma evidência; 20 minutos disponíveis.",
+    "synthetic": true,
+    "current_datetime": "2026-10-11T22:00:00+00:00",
+    "timezone": "America/Sao_Paulo",
+    "available_minutes": 20,
+    "planned_minutes": 18,
+    "reserve_minutes": 2,
+    "blocks": [
+      {
+        "block": 1,
+        "concept": "Espaço de estados",
+        "mode": "diagnostic",
+        "minutes": 18,
+        "activities": [
+          {
+            "type": "RECALL",
+            "minutes": 3,
+            "exercise_id": null
+          },
+          {
+            "type": "EXPLANATION",
+            "minutes": 3,
+            "exercise_id": null
+          },
+          {
+            "type": "INDEPENDENT_EXERCISE",
+            "minutes": 10,
+            "exercise_id": 16
+          },
+          {
+            "type": "ERROR_REVIEW",
+            "minutes": 1,
+            "exercise_id": null
+          },
+          {
+            "type": "SUMMARY",
+            "minutes": 1,
+            "exercise_id": null
+          }
+        ]
+      }
+    ],
+    "top_scores": [
+      {
+        "concept_id": 16,
+        "concept": "Espaço de estados",
+        "score": 7.24375,
+        "components": {
+          "exam_urgency": 3.54375,
+          "knowledge_gap": 1.3,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 1.5,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.70875,
+          "exam_direct": 0.0,
+          "exam_inherited": 0.70875,
+          "knowledge_gap": 0.65,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 1.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.70875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.637875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 19,
+            "weight": 0.4,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.28350000000000003
+          }
+        ],
+        "reason": "Base necessária para A*, Busca em largura — BFS, Função heurística. Pouca evidência: diagnóstico/recuperação recomendado.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": true
+      },
+      {
+        "concept_id": 22,
+        "concept": "Função heurística",
+        "score": 6.904166666666667,
+        "components": {
+          "exam_urgency": 3.9375,
+          "knowledge_gap": 1.3,
+          "review_urgency": 0.0,
+          "importance": 1.0,
+          "prerequisite_value": 1.5,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": -0.8333333333333334
+        },
+        "signals": {
+          "exam_urgency": 0.7875,
+          "exam_direct": 0.7875,
+          "exam_inherited": 0.7875,
+          "knowledge_gap": 0.65,
+          "review_urgency": 0.0,
+          "importance": 1.0,
+          "prerequisite_value": 1.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": 0.4166666666666667
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.7875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 0,
+            "inherited": false,
+            "urgency": 0.7875
+          }
+        ],
+        "reason": "Conteúdo explicitamente cobrado em avaliação futura/em andamento. Base necessária para A*. Pouca evidência: diagnóstico/recuperação recomendado. Soft gating: revisar Grafos, Busca informada.",
+        "weak_prerequisites": [
+          18,
+          21
+        ],
+        "hard_blocked_by": [],
+        "low_evidence": true
+      },
+      {
+        "concept_id": 18,
+        "concept": "Grafos",
+        "score": 6.804166666666667,
+        "components": {
+          "exam_urgency": 3.9375,
+          "knowledge_gap": 1.3,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 1.5,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": -0.8333333333333334
+        },
+        "signals": {
+          "exam_urgency": 0.7875,
+          "exam_direct": 0.0,
+          "exam_inherited": 0.7875,
+          "knowledge_gap": 0.65,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 1.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": 0.4166666666666667
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.7875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.70875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 19,
+            "weight": 0.4,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.31500000000000006
+          }
+        ],
+        "reason": "Base necessária para A*, Busca em largura — BFS, Função heurística. Pouca evidência: diagnóstico/recuperação recomendado. Soft gating: revisar Espaço de estados.",
+        "weak_prerequisites": [
+          16
+        ],
+        "hard_blocked_by": [],
+        "low_evidence": true
+      },
+      {
+        "concept_id": 25,
+        "concept": "g(n) — custo de caminho",
+        "score": 6.474166666666667,
+        "components": {
+          "exam_urgency": 3.9375,
+          "knowledge_gap": 1.3,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 1.1700000000000002,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": -0.8333333333333334
+        },
+        "signals": {
+          "exam_urgency": 0.7875,
+          "exam_direct": 0.0,
+          "exam_inherited": 0.7875,
+          "knowledge_gap": 0.65,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 0.7800000000000001,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": 0.4166666666666667
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.7875
+          }
+        ],
+        "reason": "Base necessária para A*. Pouca evidência: diagnóstico/recuperação recomendado. Soft gating: revisar Grafos.",
+        "weak_prerequisites": [
+          18
+        ],
+        "hard_blocked_by": [],
+        "low_evidence": true
+      },
+      {
+        "concept_id": 21,
+        "concept": "Busca informada",
+        "score": 6.310416666666667,
+        "components": {
+          "exam_urgency": 3.54375,
+          "knowledge_gap": 1.3,
+          "review_urgency": 0.0,
+          "importance": 0.8,
+          "prerequisite_value": 1.5,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": -0.8333333333333334
+        },
+        "signals": {
+          "exam_urgency": 0.70875,
+          "exam_direct": 0.0,
+          "exam_inherited": 0.70875,
+          "knowledge_gap": 0.65,
+          "review_urgency": 0.0,
+          "importance": 0.8,
+          "prerequisite_value": 1.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": 0.4166666666666667
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.70875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.70875
+          }
+        ],
+        "reason": "Base necessária para A*, Função heurística. Pouca evidência: diagnóstico/recuperação recomendado. Soft gating: revisar Grafos.",
+        "weak_prerequisites": [
+          18
+        ],
+        "hard_blocked_by": [],
+        "low_evidence": true
+      }
+    ],
+    "notes": [
+      "Plano estimado: executar atividades não concede domínio automaticamente.",
+      "Escopo e questões iniciais são provisórios, sujeitos aos materiais da instituição."
+    ]
+  },
+  {
+    "scenario": "Bases frágeis e prova próxima",
+    "profile": "Heurística 15%, A* 20%, demais 85%; prova em dois dias; 40 minutos.",
+    "synthetic": true,
+    "current_datetime": "2026-10-11T22:00:00+00:00",
+    "timezone": "America/Sao_Paulo",
+    "available_minutes": 40,
+    "planned_minutes": 36,
+    "reserve_minutes": 4,
+    "blocks": [
+      {
+        "block": 1,
+        "concept": "Função heurística",
+        "mode": "learn",
+        "minutes": 20,
+        "activities": [
+          {
+            "type": "RECALL",
+            "minutes": 4,
+            "exercise_id": 23
+          },
+          {
+            "type": "EXPLANATION",
+            "minutes": 4,
+            "exercise_id": null
+          },
+          {
+            "type": "INDEPENDENT_EXERCISE",
+            "minutes": 9,
+            "exercise_id": 24
+          },
+          {
+            "type": "ERROR_REVIEW",
+            "minutes": 2,
+            "exercise_id": null
+          },
+          {
+            "type": "SUMMARY",
+            "minutes": 1,
+            "exercise_id": null
+          }
+        ]
+      },
+      {
+        "block": 2,
+        "concept": "A*",
+        "mode": "learn",
+        "minutes": 16,
+        "activities": [
+          {
+            "type": "RECALL",
+            "minutes": 3,
+            "exercise_id": 26
+          },
+          {
+            "type": "EXPLANATION",
+            "minutes": 3,
+            "exercise_id": null
+          },
+          {
+            "type": "INDEPENDENT_EXERCISE",
+            "minutes": 8,
+            "exercise_id": 27
+          },
+          {
+            "type": "ERROR_REVIEW",
+            "minutes": 1,
+            "exercise_id": null
+          },
+          {
+            "type": "SUMMARY",
+            "minutes": 1,
+            "exercise_id": null
+          }
+        ]
+      }
+    ],
+    "top_scores": [
+      {
+        "concept_id": 22,
+        "concept": "Função heurística",
+        "score": 9.36,
+        "components": {
+          "exam_urgency": 3.9375,
+          "knowledge_gap": 1.7,
+          "review_urgency": 0.0,
+          "importance": 1.0,
+          "prerequisite_value": 0.7225000000000001,
+          "recent_errors": 2.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.7875,
+          "exam_direct": 0.7875,
+          "exam_inherited": 0.7875,
+          "knowledge_gap": 0.85,
+          "review_urgency": 0.0,
+          "importance": 1.0,
+          "prerequisite_value": 0.48166666666666674,
+          "recent_errors": 1.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.7875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 0,
+            "inherited": false,
+            "urgency": 0.7875
+          }
+        ],
+        "reason": "Conteúdo explicitamente cobrado em avaliação futura/em andamento. Base necessária para A*. Erros recentes precisam de investigação.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      },
+      {
+        "concept_id": 24,
+        "concept": "A*",
+        "score": 6.6,
+        "components": {
+          "exam_urgency": 4.375,
+          "knowledge_gap": 1.6,
+          "review_urgency": 0.0,
+          "importance": 1.0,
+          "prerequisite_value": 0.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": -0.375
+        },
+        "signals": {
+          "exam_urgency": 0.875,
+          "exam_direct": 0.875,
+          "exam_inherited": 0.0,
+          "knowledge_gap": 0.8,
+          "review_urgency": 0.0,
+          "importance": 1.0,
+          "prerequisite_value": 0.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.0,
+          "prerequisite_gap": 0.1875
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 0,
+            "inherited": false,
+            "urgency": 0.875
+          }
+        ],
+        "reason": "Conteúdo explicitamente cobrado em avaliação futura/em andamento. Soft gating: revisar Função heurística.",
+        "weak_prerequisites": [
+          22
+        ],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      },
+      {
+        "concept_id": 18,
+        "concept": "Grafos",
+        "score": 5.0120000000000005,
+        "components": {
+          "exam_urgency": 3.9375,
+          "knowledge_gap": 0.30000000000000004,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 1.3875000000000002,
+          "recent_errors": 0.0,
+          "mastery_penalty": -1.513,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.7875,
+          "exam_direct": 0.0,
+          "exam_inherited": 0.7875,
+          "knowledge_gap": 0.15000000000000002,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 0.9250000000000002,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.7565,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.7875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.70875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 19,
+            "weight": 0.4,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.31500000000000006
+          }
+        ],
+        "reason": "Base necessária para A*, Busca em largura — BFS, Função heurística.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      },
+      {
+        "concept_id": 16,
+        "concept": "Espaço de estados",
+        "score": 4.7307500000000005,
+        "components": {
+          "exam_urgency": 3.54375,
+          "knowledge_gap": 0.30000000000000004,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 1.5,
+          "recent_errors": 0.0,
+          "mastery_penalty": -1.513,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.70875,
+          "exam_direct": 0.0,
+          "exam_inherited": 0.70875,
+          "knowledge_gap": 0.15000000000000002,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 1.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.7565,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.70875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.637875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 19,
+            "weight": 0.4,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.28350000000000003
+          }
+        ],
+        "reason": "Base necessária para A*, Busca em largura — BFS, Função heurística.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      },
+      {
+        "concept_id": 21,
+        "concept": "Busca informada",
+        "score": 4.278250000000001,
+        "components": {
+          "exam_urgency": 3.54375,
+          "knowledge_gap": 0.30000000000000004,
+          "review_urgency": 0.0,
+          "importance": 0.8,
+          "prerequisite_value": 1.1475000000000002,
+          "recent_errors": 0.0,
+          "mastery_penalty": -1.513,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.70875,
+          "exam_direct": 0.0,
+          "exam_inherited": 0.70875,
+          "knowledge_gap": 0.15000000000000002,
+          "review_urgency": 0.0,
+          "importance": 0.8,
+          "prerequisite_value": 0.7650000000000001,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.7565,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.70875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.70875
+          }
+        ],
+        "reason": "Base necessária para A*, Função heurística.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      }
+    ],
+    "notes": [
+      "Plano estimado: executar atividades não concede domínio automaticamente.",
+      "Escopo e questões iniciais são provisórios, sujeitos aos materiais da instituição."
+    ]
+  },
+  {
+    "scenario": "Domínio alto com revisões vencidas",
+    "profile": "Mastery 85%; BFS e CNF sem exposição há 14 dias, revisão vencida há sete; 60 minutos.",
+    "synthetic": true,
+    "current_datetime": "2026-10-11T22:00:00+00:00",
+    "timezone": "America/Sao_Paulo",
+    "available_minutes": 60,
+    "planned_minutes": 55,
+    "reserve_minutes": 5,
+    "blocks": [
+      {
+        "block": 1,
+        "concept": "CNF — forma normal conjuntiva",
+        "mode": "review",
+        "minutes": 20,
+        "activities": [
+          {
+            "type": "RECALL",
+            "minutes": 4,
+            "exercise_id": null
+          },
+          {
+            "type": "EXPLANATION",
+            "minutes": 4,
+            "exercise_id": null
+          },
+          {
+            "type": "INDEPENDENT_EXERCISE",
+            "minutes": 9,
+            "exercise_id": 9
+          },
+          {
+            "type": "ERROR_REVIEW",
+            "minutes": 2,
+            "exercise_id": null
+          },
+          {
+            "type": "SUMMARY",
+            "minutes": 1,
+            "exercise_id": null
+          }
+        ]
+      },
+      {
+        "block": 2,
+        "concept": "Busca em largura — BFS",
+        "mode": "review",
+        "minutes": 20,
+        "activities": [
+          {
+            "type": "RECALL",
+            "minutes": 4,
+            "exercise_id": 19
+          },
+          {
+            "type": "EXPLANATION",
+            "minutes": 4,
+            "exercise_id": null
+          },
+          {
+            "type": "INDEPENDENT_EXERCISE",
+            "minutes": 9,
+            "exercise_id": 20
+          },
+          {
+            "type": "ERROR_REVIEW",
+            "minutes": 2,
+            "exercise_id": null
+          },
+          {
+            "type": "SUMMARY",
+            "minutes": 1,
+            "exercise_id": null
+          }
+        ]
+      },
+      {
+        "block": 3,
+        "concept": "Grafos",
+        "mode": "learn",
+        "minutes": 15,
+        "activities": [
+          {
+            "type": "RECALL",
+            "minutes": 3,
+            "exercise_id": null
+          },
+          {
+            "type": "EXPLANATION",
+            "minutes": 3,
+            "exercise_id": null
+          },
+          {
+            "type": "INDEPENDENT_EXERCISE",
+            "minutes": 7,
+            "exercise_id": 18
+          },
+          {
+            "type": "ERROR_REVIEW",
+            "minutes": 1,
+            "exercise_id": null
+          },
+          {
+            "type": "SUMMARY",
+            "minutes": 1,
+            "exercise_id": null
+          }
+        ]
+      }
+    ],
+    "top_scores": [
+      {
+        "concept_id": 9,
+        "concept": "CNF — forma normal conjuntiva",
+        "score": 10.804471418918201,
+        "components": {
+          "exam_urgency": 3.5000000000000004,
+          "knowledge_gap": 1.1558049835546038,
+          "review_urgency": 6.0,
+          "importance": 0.9,
+          "prerequisite_value": 0.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": -0.7513335646364027,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.7000000000000001,
+          "exam_direct": 0.7000000000000001,
+          "exam_inherited": 0.0,
+          "knowledge_gap": 0.5779024917773019,
+          "review_urgency": 2.0,
+          "importance": 0.9,
+          "prerequisite_value": 0.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.37566678231820133,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 9,
+            "weight": 0.8,
+            "distance": 0,
+            "inherited": false,
+            "urgency": 0.7000000000000001
+          }
+        ],
+        "reason": "Conteúdo explicitamente cobrado em avaliação futura/em andamento. Revisão vencida.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      },
+      {
+        "concept_id": 19,
+        "concept": "Busca em largura — BFS",
+        "score": 8.954471418918201,
+        "components": {
+          "exam_urgency": 1.7500000000000002,
+          "knowledge_gap": 1.1558049835546038,
+          "review_urgency": 6.0,
+          "importance": 0.8,
+          "prerequisite_value": 0.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": -0.7513335646364027,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.35000000000000003,
+          "exam_direct": 0.35000000000000003,
+          "exam_inherited": 0.0,
+          "knowledge_gap": 0.5779024917773019,
+          "review_urgency": 2.0,
+          "importance": 0.8,
+          "prerequisite_value": 0.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.37566678231820133,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 19,
+            "weight": 0.4,
+            "distance": 0,
+            "inherited": false,
+            "urgency": 0.35000000000000003
+          }
+        ],
+        "reason": "Conteúdo explicitamente cobrado em avaliação futura/em andamento. Revisão vencida.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      },
+      {
+        "concept_id": 18,
+        "concept": "Grafos",
+        "score": 4.508160996710921,
+        "components": {
+          "exam_urgency": 3.9375,
+          "knowledge_gap": 0.30000000000000004,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 0.883660996710921,
+          "recent_errors": 0.0,
+          "mastery_penalty": -1.513,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.7875,
+          "exam_direct": 0.0,
+          "exam_inherited": 0.7875,
+          "knowledge_gap": 0.15000000000000002,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 0.589107331140614,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.7565,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.7875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.70875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 19,
+            "weight": 0.4,
+            "distance": 1,
+            "inherited": true,
+            "urgency": 0.31500000000000006
+          }
+        ],
+        "reason": "Base necessária para A*, Busca em largura — BFS, Função heurística.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      },
+      {
+        "concept_id": 16,
+        "concept": "Espaço de estados",
+        "score": 4.234410996710921,
+        "components": {
+          "exam_urgency": 3.54375,
+          "knowledge_gap": 0.30000000000000004,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 1.003660996710921,
+          "recent_errors": 0.0,
+          "mastery_penalty": -1.513,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.70875,
+          "exam_direct": 0.0,
+          "exam_inherited": 0.70875,
+          "knowledge_gap": 0.15000000000000002,
+          "review_urgency": 0.0,
+          "importance": 0.9,
+          "prerequisite_value": 0.6691073311406139,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.7565,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.70875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 22,
+            "weight": 0.9,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.637875
+          },
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 19,
+            "weight": 0.4,
+            "distance": 2,
+            "inherited": true,
+            "urgency": 0.28350000000000003
+          }
+        ],
+        "reason": "Base necessária para A*, Busca em largura — BFS, Função heurística.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      },
+      {
+        "concept_id": 24,
+        "concept": "A*",
+        "score": 4.162,
+        "components": {
+          "exam_urgency": 4.375,
+          "knowledge_gap": 0.30000000000000004,
+          "review_urgency": 0.0,
+          "importance": 1.0,
+          "prerequisite_value": 0.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": -1.513,
+          "prerequisite_gap": -0.0
+        },
+        "signals": {
+          "exam_urgency": 0.875,
+          "exam_direct": 0.875,
+          "exam_inherited": 0.0,
+          "knowledge_gap": 0.15000000000000002,
+          "review_urgency": 0.0,
+          "importance": 1.0,
+          "prerequisite_value": 0.0,
+          "recent_errors": 0.0,
+          "mastery_penalty": 0.7565,
+          "prerequisite_gap": 0.0
+        },
+        "exam_sources": [
+          {
+            "assessment_id": 1,
+            "assessment": "Avaliação de IA Simbólica",
+            "tested_concept_id": 24,
+            "weight": 1.0,
+            "distance": 0,
+            "inherited": false,
+            "urgency": 0.875
+          }
+        ],
+        "reason": "Conteúdo explicitamente cobrado em avaliação futura/em andamento.",
+        "weak_prerequisites": [],
+        "hard_blocked_by": [],
+        "low_evidence": false
+      }
+    ],
+    "notes": [
+      "Plano estimado: executar atividades não concede domínio automaticamente.",
+      "Escopo e questões iniciais são provisórios, sujeitos aos materiais da instituição."
+    ]
+  }
+]
