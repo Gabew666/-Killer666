@@ -197,6 +197,16 @@ def test_hints_and_retries_are_practice_without_mastery_inflation(now):
     assert result.times_correct == 1
 
 
+def test_unknown_mastery_is_always_not_diagnosed_even_when_review_is_due(now):
+    engine = MasteryEngine()
+    unknown = StateData(concept_id=1, last_seen_at=now - timedelta(days=5), times_seen=3,
+                        next_review_at=now - timedelta(days=2))
+    assert engine.at_time(unknown, now).status == "NOT_DIAGNOSED"
+    assisted = engine.update(unknown, evidence(now, hints_used=1, independent=False))
+    assert assisted.status == "NOT_DIAGNOSED"
+    assert assisted.mastery is None and assisted.evidence_count == 0
+
+
 @pytest.mark.parametrize("kind,spec,answer,correct", [
     ("MULTIPLE_CHOICE", {"correct_index": 1}, 1, True),
     ("MULTIPLE_CHOICE", {"correct_index": 1}, 0, False),

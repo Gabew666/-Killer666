@@ -149,7 +149,8 @@ class LearningService:
 def generate_plan(db: Session, student_id: int, minutes: int, now: datetime, settings: Settings) -> SessionPlan:
     require_student(db, student_id)
     graph = KnowledgeGraph(concepts_data(db), dependencies_data(db))
-    attempts = [AttemptSummary(concept_id=c, correct=a.correct, occurred_at=a.occurred_at)
+    attempts = [AttemptSummary(concept_id=c, correct=a.correct, occurred_at=a.occurred_at,
+                               hints_used=a.hints_used)
                 for a, c in db.execute(select(ExerciseAttempt, Exercise.concept_id)
                                       .join(Exercise, Exercise.id == ExerciseAttempt.exercise_id)
                                       .where(ExerciseAttempt.student_id == student_id))]

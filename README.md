@@ -1,7 +1,7 @@
 # ATLAS · Adaptive Learning System
 
 Núcleo local de aprendizado adaptativo: “Tenho X minutos. O que devo estudar agora?”
-Fase 1 da v0.1: banco persistente, currículo de IA Simbólica, grafo, avaliação determinística, modelo de evidências, revisão e planejamento explicável. **Frontend e fluxo interativo de sessões pertencem ao próximo marco.** Não depende de LLM.
+Fase 1 da v0.1: banco persistente, currículo de IA Simbólica, grafo, avaliação determinística, modelo de evidências, revisão e planejamento explicável com estratégias de sessão adaptadas ao estado do aluno. **Frontend e fluxo interativo de sessões pertencem ao próximo marco.** Não depende de LLM.
 
 ## Instalação e execução
 

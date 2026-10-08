@@ -48,7 +48,7 @@ class StateData(Schema):
     difficulty_success_rate: float = 0
     difficulty_attempt_weight: float = 0
     next_review_at: datetime | None = None
-    status: str = "NEW"
+    status: str = "NOT_DIAGNOSED"
 
 
 class AssessmentData(Schema):
@@ -101,6 +101,7 @@ class AttemptSummary(Schema):
     concept_id: int
     correct: bool
     occurred_at: datetime
+    hints_used: int = Field(default=0, ge=0)
 
 
 class ScoreExplanation(Schema):
@@ -123,8 +124,9 @@ class PlannedActivity(Schema):
     estimated_minutes: int = Field(gt=0)
     instructions: str
     block: int
-    mode: Literal["diagnostic", "review", "learn", "bridge", "break"]
+    mode: Literal["diagnostic", "review", "learn", "practice", "bridge", "break"]
     exercise_id: int | None = None
+    decision_after: bool = False
 
 
 class SessionPlan(Schema):

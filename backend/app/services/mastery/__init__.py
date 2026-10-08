@@ -26,10 +26,10 @@ class MasteryEngine:
 
     @staticmethod
     def status(state: StateData, now: datetime) -> str:
+        if state.mastery is None:
+            return "NOT_DIAGNOSED"
         if state.next_review_at and as_utc(state.next_review_at) <= as_utc(now):
             return "REVIEW_DUE"
-        if state.mastery is None:
-            return "NEW" if state.times_seen == 0 else "LEARNING"
         if state.mastery < 0.4:
             return "WEAK"
         if state.mastery >= 0.8 and state.evidence_confidence >= 0.7 and state.evidence_count >= 5:
@@ -52,9 +52,8 @@ class MasteryEngine:
             alpha = self.config.alpha * (0.8 + 0.2 * historical) * (1.25 if delayed else 1)
             spacing = self.config.immediate_weight + (1 - self.config.immediate_weight) * min(elapsed / 3, 1)
             difficulty = 0.7 + 0.55 * evidence.difficulty
-            hint_weight = self.config.hint_weights[min(evidence.hints_used, 2)]
             if evidence.correct:
-                target = min(1.0, difficulty * hint_weight * spacing)
+                target = min(1.0, difficulty * spacing)
                 result.mastery = old + alpha * max(0.0, target - old)
                 if delayed:
                     result.stability_days = min(90.0, max(state.stability_days * 1.8, elapsed * 1.5))

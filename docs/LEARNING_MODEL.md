@@ -4,7 +4,7 @@ Modelo heurístico explicável, ainda não calibrado psicometricamente. Não equ
 
 ## Cinco medidas distintas
 
-- `mastery`: conhecimento estimado [0,1], nulo sem resposta; prior interno 0,35.
+- `mastery`: conhecimento estimado [0,1], nulo sem resposta independente; prior interno 0,35. Estado público `NOT_DIAGNOSED` enquanto for nulo, mesmo após exposição, prática assistida ou revisão vencida.
 - `retention`: retenção calculada para o instante consultado. A persistência guarda também `retention_calculated_at`; leituras recalculam para evitar snapshot obsoleto.
 - `self_confidence`: última confiança declarada pelo aluno, opcional; não prova domínio.
 - `evidence_confidence`: confiança heurística na estimativa, não confundida com autoavaliação.
@@ -24,9 +24,9 @@ Detalhes e constantes ficam em `MasteryConfig`, `ReviewConfig` e `PlannerConfig`
 Exposição recente restaura disponibilidade imediata, mas não aumenta estabilidade nem mastery. Recuperação tardia independente e correta aumenta estabilidade; erro independente a reduz.
 
 Dificuldade: `d = 0.7 + 0.55 * difficulty`.
-Dicas: `h = [1, 0.8, 0.5][min(hints_used, 2)]`.
+Dicas tornam a resposta prática assistida: ficam no histórico, sem nova evidência independente nem alteração de mastery. Não há fator de dica no alvo da evidência independente.
 Espaçamento: `s = 0.65 + 0.35 * min(days_since_exposure / 3, 1)` (primeira exposição usa 0,65).
-Alvo de acerto: `target = min(1, d * h * s)`.
+Alvo de acerto independente: `target = min(1, d * s)`.
 Alpha: `0.28 * (0.8 + 0.2 * historical_independent_success_rate)`; recuperação tardia multiplica por 1,25.
 Acerto independente: `mastery += alpha * max(0, target - mastery)`.
 Erro independente: `mastery *= 1 - alpha * (1 + 0.25 * self_confidence)` (confiança omitida usa 0,5).
@@ -69,3 +69,5 @@ O retorno inclui componentes, sinais brutos, motivos, pré-requisitos frágeis, 
 Reserva 8% do orçamento, com arredondamento conservador; faixa 10–240 min. Blocos incluem recuperação, explicação curta, exercício, correção e síntese. Sessões ≥120 min incluem pausas. Conteúdo escasso pode produzir sessão menor. Geração não cria evidência nem presume aprendizagem.
 
 Os cinco tipos determinísticos corrigem somente rubricas cadastradas. SHORT_EXACT não reconhece sinônimos não cadastrados; NUMERIC usa tolerância explícita; STRUCTURED exige os campos da rubrica. Diagnóstico por distrator é hipótese. Erro em A* pode sugerir investigar heurística, mas não reduz automaticamente o domínio dela. A cobertura seed e o escopo da avaliação são provisórios até receber material institucional.
+
+O Session Builder usa o estado observado para montar blocos DIAGNOSTIC, LEARNING, REVIEW ou PRACTICE. DIAGNOSTIC não contém explicação antes da resposta e marca um ponto para decisão posterior; não traduz o prior interno em mastery público. LEARNING dá mais tempo a explicação e aplicação guiada; REVIEW enfatiza recuperação sem consulta; PRACTICE enfatiza exercício independente. Uma resposta assistida recente pode solicitar LEARNING em vez de PRACTICE, sem alterar mastery ou evidence_count. O plano gerado é uma previsão: a decisão posterior só pode usar uma tentativa efetivamente registrada.

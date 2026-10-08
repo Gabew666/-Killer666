@@ -15,7 +15,9 @@ def test_api_seed_state_and_explainable_plan(settings, now):
         assert len(client.get(f"/subjects/{subjects[0]['id']}/concepts").json()) == 30
         states = client.get("/student/state").json()
         assert len(states) == 30
-        assert all(s["mastery"] is None and s["low_evidence"] and s["evidence_count"] == 0 for s in states)
+        assert all(s["mastery"] is None and s["status"] == "NOT_DIAGNOSED"
+                   and s["mastery_interpretation"] == "NOT_DIAGNOSED"
+                   and s["low_evidence"] and s["evidence_count"] == 0 for s in states)
         before = states
         response = client.post("/sessions/plan", json={"student_id": 1, "available_minutes": 40})
         assert response.status_code == 200
@@ -23,6 +25,9 @@ def test_api_seed_state_and_explainable_plan(settings, now):
         assert 0 < plan["planned_minutes"] <= 36
         assert len(plan["ranking"]) == 30
         assert all(r["reason"] and r["components"] for r in plan["ranking"])
+        assert all(a["mode"] == "diagnostic" for a in plan["activities"])
+        assert all(a["activity_type"] != "EXPLANATION" for a in plan["activities"])
+        assert any(a["decision_after"] for a in plan["activities"])
         assert "answer_spec" not in response.text and "correct_index" not in response.text
         assert client.get("/student/state").json() == before
         assert len(client.get("/assessments").json()[0]["concept_weights"]) == 7

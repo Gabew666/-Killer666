@@ -153,7 +153,7 @@ class StudentConceptState(Base):
     difficulty_success_rate: Mapped[float] = mapped_column(Float, default=0.0)
     difficulty_attempt_weight: Mapped[float] = mapped_column(Float, default=0.0)
     next_review_at: Mapped[datetime | None] = mapped_column(UTCDateTime)
-    status: Mapped[str] = mapped_column(String(20), default="NEW")
+    status: Mapped[str] = mapped_column(String(20), default="NOT_DIAGNOSED")
 
 
 class StudySession(Base):

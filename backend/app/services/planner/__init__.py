@@ -11,6 +11,7 @@ from app.schemas.domain import (
 from app.services.knowledge_graph import KnowledgeGraph
 from app.services.mastery import MasteryEngine
 from app.services.planner.exam import ExamPriority
+from app.services.planner.session_builder import SessionBuilder
 
 
 class AdaptivePlanner:
@@ -20,6 +21,7 @@ class AdaptivePlanner:
         self.config = config
         self.mastery = mastery or MasteryEngine(MasteryConfig())
         self.exam = ExamPriority(timezone, config)
+        self.builder = SessionBuilder()
 
     def rank(self, states: dict[int, StateData], assessments: list[AssessmentData],
              attempts: list[AttemptSummary], now: datetime) -> list[ScoreExplanation]:
@@ -126,7 +128,10 @@ class AdaptivePlanner:
                     estimated_minutes=5, instructions="Faça uma pausa breve antes do próximo bloco.", block=block + 1, mode="break"))
                 remaining -= 5
                 since_break = 0
-            weak = [p for p in candidate.weak_prerequisites if p not in covered]
+            current = self.mastery.at_time(states.get(concept_id, StateData(concept_id=concept_id)), now)
+            mode = self.builder.choose(current, attempts, now)
+            # Diagnóstico mede a base antes de presumir que falta conhecimento.
+            weak = [] if mode == "diagnostic" else [p for p in candidate.weak_prerequisites if p not in covered]
             # Não introduzir uma base cuja própria dependência essencial esteja bloqueada.
             bridgeable = {r.concept_id for r in eligible}
             weak.sort(key=lambda p: (states.get(p, StateData(concept_id=p)).mastery or 0, p))
@@ -142,10 +147,11 @@ class AdaptivePlanner:
             if uncovered:
                 notes.append(f"{candidate.concept}: introdução com apoio; bases ainda frágeis: " +
                              ", ".join(self.graph.concepts[p].name for p in uncovered) + ".")
-            duration = min(remaining, cfg.block_minutes, max(8, self.graph.concepts[concept_id].estimated_minutes))
+            duration = min(remaining, 8 if mode == "diagnostic" else cfg.block_minutes,
+                           max(8, self.graph.concepts[concept_id].estimated_minutes))
             block += 1
-            mode = "diagnostic" if candidate.low_evidence else ("review" if candidate.signals["review_urgency"] else "learn")
-            activities.extend(self._block(concept_id, duration, block, mode, exercises))
+            activities.extend(self.builder.build(self.graph.concepts[concept_id], duration, block, mode,
+                                                 (exercises or {}).get(concept_id, [])))
             remaining -= duration
             since_break += duration
             covered.add(concept_id)
@@ -177,26 +183,3 @@ class AdaptivePlanner:
         return [PlannedActivity(concept_id=concept_id, concept=concept.name, activity_type=kind,
                                 estimated_minutes=minutes, instructions=text, block=block,
                                 mode="bridge", exercise_id=ex) for kind, minutes, text, ex in parts]
-
-    def _block(self, concept_id: int, minutes: int, block: int, mode: str,
-               exercises: dict[int, list[int]] | None) -> list[PlannedActivity]:
-        concept = self.graph.concepts[concept_id]
-        recall = max(1, int(minutes * .2))
-        explanation = max(1, int(minutes * .2))
-        correction = max(1, int(minutes * .1))
-        summary = 1
-        practice = minutes - recall - explanation - correction - summary
-        ids = (exercises or {}).get(concept_id, [])
-        # Com dois itens, diagnóstico antes da explicação e aplicação posterior são distintos.
-        first = ids[0] if len(ids) >= 2 else None
-        second = ids[1] if len(ids) >= 2 else (ids[0] if ids else None)
-        parts = [
-            (ActivityType.RECALL, recall, "Antes de consultar a explicação, recupere o conceito e responda ao diagnóstico disponível.", first),
-            (ActivityType.EXPLANATION, explanation, concept.description, None),
-            (ActivityType.INDEPENDENT_EXERCISE, practice, "Resolva sem consulta; se usar dicas, registre-as. Prefira justificar cada passo.", second),
-            (ActivityType.ERROR_REVIEW, correction, "Compare com o feedback. Identifique se a dificuldade está no conceito, cálculo ou pré-requisito.", None),
-            (ActivityType.SUMMARY, summary, "Explique a ideia central de memória e anote uma dúvida para a próxima revisão.", None),
-        ]
-        return [PlannedActivity(concept_id=concept_id, concept=concept.name, activity_type=kind,
-                                estimated_minutes=duration, instructions=text, block=block,
-                                mode=mode, exercise_id=ex) for kind, duration, text, ex in parts]

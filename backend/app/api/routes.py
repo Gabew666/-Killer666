@@ -61,7 +61,7 @@ def student_state(request: Request, student_id: int = 1):
             result.append(state.model_dump(mode="json") | {
                 "concept": concept.name,
                 "low_evidence": state.evidence_count < 3 or state.evidence_confidence < .35,
-                "mastery_interpretation": "Não diagnosticado" if state.mastery is None else
+                "mastery_interpretation": "NOT_DIAGNOSED" if state.mastery is None else
                     ("Estimativa com pouca evidência" if state.evidence_confidence < .35 else "Estimativa heurística"),
             })
         return result

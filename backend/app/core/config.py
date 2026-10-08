@@ -11,7 +11,6 @@ class MasteryConfig:
     independence_hours: float = 24.0
     confidence_scale: float = 8.0
     immediate_weight: float = 0.65
-    hint_weights: tuple[float, ...] = (1.0, 0.8, 0.5)
 
 
 @dataclass(frozen=True)

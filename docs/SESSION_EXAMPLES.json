@@ -6,38 +6,51 @@
     "current_datetime": "2026-10-11T22:00:00+00:00",
     "timezone": "America/Sao_Paulo",
     "available_minutes": 20,
-    "planned_minutes": 18,
-    "reserve_minutes": 2,
+    "planned_minutes": 16,
+    "reserve_minutes": 4,
     "blocks": [
       {
         "block": 1,
         "concept": "Espaço de estados",
         "mode": "diagnostic",
-        "minutes": 18,
+        "minutes": 8,
         "activities": [
           {
             "type": "RECALL",
-            "minutes": 3,
-            "exercise_id": null
-          },
-          {
-            "type": "EXPLANATION",
-            "minutes": 3,
-            "exercise_id": null
-          },
-          {
-            "type": "INDEPENDENT_EXERCISE",
-            "minutes": 10,
+            "minutes": 4,
             "exercise_id": 16
           },
           {
             "type": "ERROR_REVIEW",
-            "minutes": 1,
+            "minutes": 2,
             "exercise_id": null
           },
           {
             "type": "SUMMARY",
-            "minutes": 1,
+            "minutes": 2,
+            "exercise_id": null
+          }
+        ]
+      },
+      {
+        "block": 2,
+        "concept": "A*",
+        "mode": "diagnostic",
+        "minutes": 8,
+        "activities": [
+          {
+            "type": "RECALL",
+            "minutes": 4,
+            "exercise_id": 26
+          },
+          {
+            "type": "ERROR_REVIEW",
+            "minutes": 2,
+            "exercise_id": null
+          },
+          {
+            "type": "SUMMARY",
+            "minutes": 2,
             "exercise_id": null
           }
         ]
@@ -341,8 +354,8 @@
         "activities": [
           {
             "type": "RECALL",
-            "minutes": 4,
-            "exercise_id": 23
+            "minutes": 2,
+            "exercise_id": null
           },
           {
             "type": "EXPLANATION",
@@ -350,18 +363,23 @@
             "exercise_id": null
           },
           {
+            "type": "GUIDED_EXERCISE",
+            "minutes": 3,
+            "exercise_id": 23
+          },
+          {
             "type": "INDEPENDENT_EXERCISE",
-            "minutes": 9,
+            "minutes": 6,
             "exercise_id": 24
           },
           {
             "type": "ERROR_REVIEW",
-            "minutes": 2,
+            "minutes": 3,
             "exercise_id": null
           },
           {
             "type": "SUMMARY",
-            "minutes": 1,
+            "minutes": 2,
             "exercise_id": null
           }
         ]
@@ -374,8 +392,8 @@
         "activities": [
           {
             "type": "RECALL",
-            "minutes": 3,
-            "exercise_id": 26
+            "minutes": 2,
+            "exercise_id": null
           },
           {
             "type": "EXPLANATION",
@@ -383,18 +401,23 @@
             "exercise_id": null
           },
           {
+            "type": "GUIDED_EXERCISE",
+            "minutes": 3,
+            "exercise_id": 26
+          },
+          {
             "type": "INDEPENDENT_EXERCISE",
-            "minutes": 8,
+            "minutes": 4,
             "exercise_id": 27
           },
           {
             "type": "ERROR_REVIEW",
-            "minutes": 1,
+            "minutes": 2,
             "exercise_id": null
           },
           {
             "type": "SUMMARY",
-            "minutes": 1,
+            "minutes": 2,
             "exercise_id": null
           }
         ]
@@ -691,27 +714,17 @@
         "activities": [
           {
             "type": "RECALL",
-            "minutes": 4,
-            "exercise_id": null
-          },
-          {
-            "type": "EXPLANATION",
-            "minutes": 4,
-            "exercise_id": null
-          },
-          {
-            "type": "INDEPENDENT_EXERCISE",
-            "minutes": 9,
+            "minutes": 12,
             "exercise_id": 9
           },
           {
             "type": "ERROR_REVIEW",
-            "minutes": 2,
+            "minutes": 5,
             "exercise_id": null
           },
           {
             "type": "SUMMARY",
-            "minutes": 1,
+            "minutes": 3,
             "exercise_id": null
           }
         ]
@@ -724,27 +737,22 @@
         "activities": [
           {
             "type": "RECALL",
-            "minutes": 4,
+            "minutes": 8,
             "exercise_id": 19
           },
           {
-            "type": "EXPLANATION",
-            "minutes": 4,
-            "exercise_id": null
-          },
-          {
-            "type": "INDEPENDENT_EXERCISE",
-            "minutes": 9,
+            "type": "QUIZ",
+            "minutes": 5,
             "exercise_id": 20
           },
           {
             "type": "ERROR_REVIEW",
-            "minutes": 2,
+            "minutes": 4,
             "exercise_id": null
           },
           {
             "type": "SUMMARY",
-            "minutes": 1,
+            "minutes": 3,
             "exercise_id": null
           }
         ]
@@ -752,16 +760,11 @@
       {
         "block": 3,
         "concept": "Grafos",
-        "mode": "learn",
+        "mode": "practice",
         "minutes": 15,
         "activities": [
           {
             "type": "RECALL",
-            "minutes": 3,
-            "exercise_id": null
-          },
-          {
-            "type": "EXPLANATION",
             "minutes": 3,
             "exercise_id": null
           },
@@ -772,12 +775,12 @@
           },
           {
             "type": "ERROR_REVIEW",
-            "minutes": 1,
+            "minutes": 3,
             "exercise_id": null
           },
           {
             "type": "SUMMARY",
-            "minutes": 1,
+            "minutes": 2,
             "exercise_id": null
           }
         ]

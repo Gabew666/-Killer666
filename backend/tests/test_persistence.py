@@ -124,6 +124,7 @@ def test_hint_then_correct_retries_never_create_independent_evidence(db, now):
     assert state.mastery is None
     assert state.evidence_confidence == 0
     assert state.times_attempted == 5
+    assert state.status == "NOT_DIAGNOSED"
 
 
 def test_error_diagnosis_does_not_modify_unobserved_prerequisite(db, now):
