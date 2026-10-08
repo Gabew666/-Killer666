@@ -23,4 +23,4 @@ USER atlas
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s \
     CMD python -c 'import os, urllib.request; urllib.request.urlopen("http://127.0.0.1:" + os.environ.get("PORT", "8000") + "/health", timeout=3)'
-CMD ["sh", "-c", ": \"${ATLAS_DATABASE_URL:?Configure ATLAS_DATABASE_URL}\"; : \"${ATLAS_CORS_ORIGINS:?Configure ATLAS_CORS_ORIGINS}\"; exec uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["sh", "-c", ": \"${ATLAS_DATABASE_URL:?Configure ATLAS_DATABASE_URL}\"; : \"${ATLAS_CORS_ORIGINS:?Configure ATLAS_CORS_ORIGINS}\"; alembic upgrade head; exec uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
