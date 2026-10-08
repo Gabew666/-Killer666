@@ -195,6 +195,8 @@ class CurriculumImporter:
                 exercise.exercise_type, exercise.prompt = item.exercise_type, item.prompt
                 exercise.options, exercise.answer_spec = item.options, item.answer_spec
                 exercise.explanation, exercise.difficulty = item.explanation, item.difficulty
+                exercise.origin_type = "CURRICULUM_PACKAGE"
+                exercise.provenance = item.provenance.model_dump(mode="json") if item.provenance else None
                 exercise.error_map = {key: {**diagnosis, "concepts_involved": [concepts[c].id for c in diagnosis.get("concepts_involved", [])]}
                                       for key, diagnosis in item.error_map.items()}
                 db.flush()

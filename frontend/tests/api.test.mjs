@@ -36,6 +36,9 @@ test("API 409 is typed and explained in Portuguese", async () => {
 test("missing content and network failures have friendly messages", async () => {
   assert.match(friendlyApiError(new ApiError(422, "invalid", "Plano sem atividades disponíveis"), "start"),
     /Não há conteúdo ou exercícios suficientes/);
+  assert.match(friendlyApiError(new ApiError(422, "invalid",
+    "Currículo real carregado, mas faltam exercícios diagnósticos autorais do ATLAS: 0/14 conceitos prioritários cobertos"), "start"),
+  /Não há conteúdo ou exercícios suficientes/);
   await assert.rejects(requestJson("/sessions/start", { method: "POST" }, async () => new Response(
     JSON.stringify({ detail: "Plano sem atividades disponíveis" }), { status: 422 },
   )), (error) => error instanceof ApiError && error.detail === "Plano sem atividades disponíveis");

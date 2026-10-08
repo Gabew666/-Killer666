@@ -115,7 +115,7 @@ class AdaptivePlanner:
         eligible = [r for r in ranking if not r.hard_blocked_by and (exercises is None or exercises.get(r.concept_id))]
         pending = list(eligible)
         notes = ["Plano estimado: executar atividades não concede domínio automaticamente.",
-                 "Escopo e questões iniciais são provisórios, sujeitos aos materiais da instituição."]
+                 "Escopo e questões dependem do currículo e da proveniência cadastrados."]
         block = 0
         since_break = 0
         while pending and remaining >= 8:

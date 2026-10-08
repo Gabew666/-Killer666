@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import os
 from pathlib import Path
+from typing import Literal
 from zoneinfo import ZoneInfo
 
 
@@ -43,11 +44,14 @@ class Settings:
     database_url: str
     timezone: str = "America/Sao_Paulo"
     cors_origins: tuple[str, ...] = ("http://localhost:3000", "http://127.0.0.1:3000")
+    content_mode: Literal["provisional", "real"] = "provisional"
 
     def __post_init__(self) -> None:
         ZoneInfo(self.timezone)  # Falha cedo se houver configuração inválida.
         if any(origin == "*" or not origin.startswith(("http://", "https://")) for origin in self.cors_origins):
             raise ValueError("ATLAS_CORS_ORIGINS exige origens HTTP(S) explícitas")
+        if self.content_mode not in ("provisional", "real"):
+            raise ValueError("ATLAS_CONTENT_MODE deve ser provisional ou real")
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -58,4 +62,5 @@ class Settings:
             tuple(origin.strip() for origin in os.getenv(
                 "ATLAS_CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"
             ).split(",") if origin.strip()),
+            os.getenv("ATLAS_CONTENT_MODE", "provisional"),
         )

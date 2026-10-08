@@ -11,6 +11,7 @@ from app.models import (
 )
 from app.schemas.domain import AttemptInput, AttemptSummary, Evidence, SessionPlan, StateData
 from app.services.curriculum import assessments_data, concepts_data, dependencies_data, states_data
+from app.services.diagnostics import real_diagnostic_exercises
 from app.services.evaluation import DeterministicEvaluator
 from app.services.knowledge_graph import KnowledgeGraph
 from app.services.mastery import MasteryEngine
@@ -154,9 +155,12 @@ def generate_plan(db: Session, student_id: int, minutes: int, now: datetime, set
                 for a, c in db.execute(select(ExerciseAttempt, Exercise.concept_id)
                                       .join(Exercise, Exercise.id == ExerciseAttempt.exercise_id)
                                       .where(ExerciseAttempt.student_id == student_id))]
-    exercises: dict[int, list[int]] = {}
-    for exercise in db.scalars(select(Exercise).order_by(Exercise.difficulty, Exercise.id)):
-        exercises.setdefault(exercise.concept_id, []).append(exercise.id)
+    if settings.content_mode == "real":
+        exercises = real_diagnostic_exercises(db)
+    else:
+        exercises: dict[int, list[int]] = {}
+        for exercise in db.scalars(select(Exercise).order_by(Exercise.difficulty, Exercise.id)):
+            exercises.setdefault(exercise.concept_id, []).append(exercise.id)
     return AdaptivePlanner(graph, timezone=settings.timezone).plan(
         student_id, minutes, states_data(db, student_id), assessments_data(db), attempts, now, exercises)
 

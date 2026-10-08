@@ -8,7 +8,9 @@ Fluxo: CurriculumPackage JSON → CurriculumValidator → CurriculumImporter →
 
 - `core`: configurações imutáveis, UTC e fuso de calendário configurável.
 - `db` / `models`: entidades curriculares, de aprendizagem e runtime, chaves estrangeiras e restrições.
-- `seed`: currículo provisório e questões determinísticas reproduzíveis.
+- `seed`: currículo provisório e questões determinísticas reproduzíveis, usado somente em `ATLAS_CONTENT_MODE=provisional`.
+- `bootstrap`: seleciona `provisional` ou `real` e rejeita bancos mistos; `real` importa o pacote institucional em DRAFT sem apagar o estado do aluno.
+- `services/diagnostics`: escopo inicial de 14 conceitos reais e registro futuro de questões autorais do ATLAS, com proveniência derivada do conceito institucional.
 - `services/curriculum`: formato versionado, validação integral antes de gravar, importação transacional e relatório; também inserção validada de dependências e escopo de avaliação.
 - `services/knowledge_graph`: DAG, ancestrais, dependências e lacunas.
 - `services/mastery`: estimativas puras a partir de evidência qualificada.
@@ -33,6 +35,8 @@ Fluxo: CurriculumPackage JSON → CurriculumValidator → CurriculumImporter →
 7. **Consistência.** Tentativa, estado, revisão e evento pertencem à mesma transação. O serviço não faz commit escondido. Unicidade impede duplicar número de tentativa ou revisão corrente; sessões mantêm snapshot do plano.
 8. **Runtime.** A sessão passa por PLANNED → IN_PROGRESS → COMPLETED ou ABANDONED. Uma resposta só é aceita para a atividade atual. Repeti-la retorna conflito; concluir ou abandonar bloqueia novas respostas. Exercícios exigem `/answer`; atividades sem exercício usam `/advance`.
 9. **Currículo separado do aluno.** Pacotes são snapshots versionados com proveniência por item. O importador altera apenas tabelas curriculares, não `StudentConceptState`, tentativas, revisões nem sessões. O seed provisório não é substituído automaticamente. A validação checa referências, rubricas e ciclos, e a importação usa savepoint para rollback completo. Versões anteriores permanecem auditáveis; veja [contrato de importação](CURRICULUM_PACKAGE.md).
+10. **Bootstrap explícito.** Default `provisional` preserva o comportamento anterior. `real` valida e importa `uniasselvi-ia-simbolica-2026-2` v0.1.0 em transação, cria somente o aluno local necessário e falha se houver conteúdo fora desse pacote ou de diagnósticos autorais vinculados. `/health` informa o modo ativo. Não há conversão automática de banco provisório para real: use um banco separado ou uma migração planejada.
+11. **Questões diagnósticas distintas.** Os 14 alvos iniciais são chaves de conceitos do currículo real. O pacote institucional contém zero questões e zero avaliações. `register_atlas_diagnostic` aceita somente esses conceitos, marca `ATLAS_AUTHORED_DIAGNOSTIC`, deriva material/página da proveniência do conceito e não altera domínio do aluno. Até haver uma questão autoral para cada alvo, `/sessions/start` e `/sessions/plan` respondem 422 com a cobertura faltante. Questões do seed têm `PROVISIONAL_SEED` e nunca entram no planner do modo real.
 
 ## Session Builder adaptativo
 
@@ -59,7 +63,7 @@ Cada resposta atualiza tentativa, estado, revisão, atividades e `LearningEvent(
 
 O dashboard consulta `/student/state` e `/subjects`, oferece 20/40/60 minutos e armazena apenas o ID da sessão ativa em `localStorage` para retomada no mesmo navegador. A rota `/session/[id]` usa o estado público de `/sessions/{id}`, envia respostas com tempo de resposta e declaração de dica, avança atividades sem exercício e fecha uma sessão sem atividade corrente. A conclusão mostra tempo, atividades e razões de decisão. `/progress` nunca mostra o prior de 0,35 como mastery observado: `mastery=null` é exibido como “Ainda não diagnosticado”. O browser não recebe rubricas nem gabaritos.
 
-O backend libera CORS apenas para origens configuradas em `ATLAS_CORS_ORIGINS`, com defaults locais e sem curinga. `NEXT_PUBLIC_ATLAS_API_URL` define o endereço visto pelo navegador no momento do build. O manifesto PWA contém nome, cores e ícone; offline e service worker ficam para outro marco. A retomada depende do `localStorage` do mesmo navegador, pois ainda não há listagem de sessões por aluno. Respostas estruturadas são inseridas como JSON no MVP.
+O backend libera CORS apenas para origens configuradas em `ATLAS_CORS_ORIGINS`, com defaults locais e sem curinga. `NEXT_PUBLIC_ATLAS_API_URL` define o endereço visto pelo navegador no momento do build. O manifesto PWA contém nome, cores e ícone; offline e service worker ficam para outro marco. A retomada depende do `localStorage` do mesmo navegador, pois ainda não há listagem de sessões por aluno. Respostas estruturadas são inseridas como JSON no MVP. O erro 422 do modo real usa o mesmo estado público de falta de exercícios que o dashboard já apresenta.
 
 ## Evolução
 

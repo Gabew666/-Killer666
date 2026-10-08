@@ -46,7 +46,7 @@ def seed_database(db: Session) -> None:
                       "concepts_involved": [concepts[s].id for s in value.get("concept_slugs", [])]}
                 for key, value in question["error_map"].items()
             }
-            db.add(Exercise(concept_id=concepts[slug].id, **data))
+            db.add(Exercise(concept_id=concepts[slug].id, origin_type="PROVISIONAL_SEED", **data))
     assessment = db.scalar(select(Assessment).where(
         Assessment.subject_id == subject.id, Assessment.name == "Avaliação de IA Simbólica",
         Assessment.start_date == date(2026, 10, 13)))

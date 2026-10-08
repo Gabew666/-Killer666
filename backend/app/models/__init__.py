@@ -237,6 +237,9 @@ class Exercise(Base):
     answer_spec: Mapped[dict[str, Any]] = mapped_column(JSON)
     explanation: Mapped[str] = mapped_column(Text)
     difficulty: Mapped[float] = mapped_column(Float, default=0.5)
+    # Currículo institucional, seed provisório e diagnóstico autoral têm origens distintas.
+    origin_type: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    provenance: Mapped[dict[str, Any] | None] = mapped_column(JSON, nullable=True)
     # Chave da resposta -> hipótese de erro e conceitos para investigar.
     error_map: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
 

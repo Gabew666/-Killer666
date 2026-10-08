@@ -20,7 +20,9 @@ router = APIRouter()
 def health(request: Request):
     with request.app.state.session_factory() as db:
         db.execute(text("SELECT 1"))
-    return {"status": "ok", "database": "ok", "phase": 1, "timezone": request.app.state.settings.timezone}
+    return {"status": "ok", "database": "ok", "phase": 1,
+            "timezone": request.app.state.settings.timezone,
+            "content_mode": request.app.state.settings.content_mode}
 
 
 @router.get("/subjects")

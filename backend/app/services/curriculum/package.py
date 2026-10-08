@@ -21,7 +21,7 @@ def _unique(values: list[str], label: str) -> None:
         raise CurriculumValidationError(f"{label} duplicado: {', '.join(duplicates)}")
 
 
-def _rubric(kind: str, spec: dict[str, Any], options: list[str] | None) -> None:
+def validate_rubric(kind: str, spec: dict[str, Any], options: list[str] | None) -> None:
     if kind == ExerciseType.MULTIPLE_CHOICE:
         if not options or len(options) < 2 or any(not x.strip() for x in options):
             raise CurriculumValidationError("MULTIPLE_CHOICE exige ao menos duas opções")
@@ -48,7 +48,7 @@ def _rubric(kind: str, spec: dict[str, Any], options: list[str] | None) -> None:
         for name, rule in fields.items():
             if not name or not isinstance(rule, dict) or rule.get("type") == ExerciseType.STRUCTURED:
                 raise CurriculumValidationError("Campo STRUCTURED inválido")
-            _rubric(rule.get("type"), rule, rule.get("options"))
+            validate_rubric(rule.get("type"), rule, rule.get("options"))
     else:
         raise CurriculumValidationError(f"Tipo de exercício desconhecido: {kind}")
 
@@ -100,7 +100,7 @@ class CurriculumValidator:
                 raise CurriculumValidationError(f"Exercício {exercise.key} sem conceito válido")
             if len(f"{package.package_id}:{exercise.key}") > 120:
                 raise CurriculumValidationError("Identificador de exercício muito longo")
-            _rubric(exercise.exercise_type, exercise.answer_spec, exercise.options)
+            validate_rubric(exercise.exercise_type, exercise.answer_spec, exercise.options)
             for diagnosis in exercise.error_map.values():
                 involved = diagnosis.get("concepts_involved", []) if isinstance(diagnosis, dict) else None
                 if not isinstance(involved, list) or any(not isinstance(key, str) or key not in concept_keys for key in involved):
