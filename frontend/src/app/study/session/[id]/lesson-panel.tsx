@@ -35,6 +35,14 @@ export default function LessonPanel({ guide, mode }: { guide: StudyGuide; mode: 
         {guide.keyPoints.map((item) => <li key={item}>{item}</li>)}
       </ul>
     </div>
+    <div style={{padding:"1rem",border:"1px solid var(--border)",borderRadius:"14px",background:"var(--surface-raised)"}}>
+      <p className="eyebrow">Exemplo resolvido</p>
+      <h3>{guide.example.title}</h3>
+      <ol style={{margin:"0",paddingLeft:"1.25rem",lineHeight:1.65}}>
+        {guide.example.steps.map((step) => <li key={step}>{step}</li>)}
+      </ol>
+      <p className="muted" style={{marginTop:".8rem",marginBottom:0}}>{guide.example.takeaway}</p>
+    </div>
     <p className="muted" style={{fontSize:".82rem"}}>{guide.source} · síntese autoral do ATLAS baseada no material da disciplina.</p>
   </div>;
 }
