@@ -1,0 +1,401 @@
+{
+  "content_type": "ATLAS_STUDY_GUIDE",
+  "version": "0.2.0",
+  "curriculum_package_id": "uniasselvi-ia-simbolica-2026-2",
+  "source_name": "Livro Digital — Inteligência Artificial Simbólica",
+  "source_type": "INSTITUTIONAL_MATERIAL",
+  "basis_note": "Sínteses e exemplos autorais do ATLAS, ancorados nos temas e conceitos do material institucional. Não são questões oficiais nem transcrição integral do livro.",
+  "lessons": [
+    {
+      "concept_key": "fundamentos-ia-simbolica",
+      "title": "Fundamentos da IA Simbólica",
+      "source_reference": "Tema 1 — Histórico e fundamentos; Tema 3 — Paradigma simbólico em IA",
+      "summary": "Na IA simbólica, o conhecimento é representado explicitamente por símbolos e manipulado por regras lógicas. Isso permite organizar fatos, relações e regras de uma forma que o sistema consegue usar para raciocinar e justificar conclusões.",
+      "why_it_matters": "Esse é o ponto de partida da disciplina: antes de estudar busca, redes semânticas ou frames, você precisa entender que o sistema trabalha com representações explícitas de conhecimento.",
+      "key_points": [
+        "Símbolos representam conceitos, objetos, relações, constantes, variáveis ou funções.",
+        "Regras lógicas transformam fatos conhecidos em novas conclusões.",
+        "Uma vantagem importante é a possibilidade de explicar como uma conclusão foi obtida.",
+        "A lógica formal é uma base central do paradigma simbólico."
+      ],
+      "worked_example": {
+        "title": "Regra explícita",
+        "steps": [
+          "Fato: PedidoPago.",
+          "Fato: HaEstoque.",
+          "Regra: PedidoPago ∧ HaEstoque → AutorizarEnvio.",
+          "Como as duas condições são verdadeiras, o sistema deriva AutorizarEnvio."
+        ],
+        "takeaway": "A conclusão pode ser rastreada até fatos e regras explícitos."
+      },
+      "common_mistakes": [
+        "Confundir IA simbólica com um sistema que apenas memoriza respostas.",
+        "Achar que símbolo significa apenas uma letra; palavras, relações e estruturas também podem representar conhecimento."
+      ],
+      "quick_check": "Se você consegue apontar os fatos, a regra aplicada e a conclusão, você está reconhecendo um raciocínio simbólico."
+    },
+    {
+      "concept_key": "formulacao-de-problemas-ia",
+      "title": "Formulação de problemas em IA",
+      "source_reference": "Tema 2 — Teoria de problemas e IA: modelagem e soluções práticas",
+      "summary": "Formular um problema significa transformar uma situação em uma estrutura que a IA possa explorar: estado inicial, ações possíveis, transições, objetivo e, quando necessário, custo.",
+      "why_it_matters": "Um algoritmo de busca só funciona bem quando o problema foi modelado corretamente. Uma formulação ruim pode fazer a busca explorar estados irrelevantes ou nem reconhecer a solução.",
+      "key_points": [
+        "Estado inicial descreve de onde o problema começa.",
+        "Ações definem o que pode ser feito em cada estado.",
+        "O modelo de transição descreve o resultado de uma ação.",
+        "O teste de objetivo identifica quando a solução foi alcançada.",
+        "Custos permitem comparar soluções quando nem todos os caminhos têm o mesmo valor."
+      ],
+      "worked_example": {
+        "title": "Robô levando uma caixa",
+        "steps": [
+          "Estado inicial: robô e caixa estão na sala A.",
+          "Ações: mover-se, pegar a caixa, soltar a caixa.",
+          "Transições atualizam a posição do robô e da caixa.",
+          "Objetivo: caixa localizada na sala B."
+        ],
+        "takeaway": "A formulação descreve o problema antes de qualquer algoritmo de busca ser escolhido."
+      },
+      "common_mistakes": [
+        "Definir o objetivo como uma ação intermediária em vez do estado desejado.",
+        "Incluir detalhes que não alteram nenhuma decisão do agente."
+      ],
+      "quick_check": "Pergunte: eu consigo dizer onde começo, o que posso fazer e como reconheço que terminei?"
+    },
+    {
+      "concept_key": "espaco-de-estados",
+      "title": "Espaço de estados",
+      "source_reference": "Tema 2 — Teoria de problemas e IA; Tema 6 — representação de estados",
+      "summary": "Um estado descreve uma configuração relevante do problema em um determinado momento. O espaço de estados é o conjunto das configurações possíveis e das transições entre elas.",
+      "why_it_matters": "Busca em IA acontece sobre estados. Se você entende como representar os estados, fica muito mais fácil compreender BFS, DFS, heurísticas e A*.",
+      "key_points": [
+        "Cada estado deve guardar apenas informações relevantes para decidir ações.",
+        "Ações conectam um estado a outro por transições.",
+        "O estado pode ser representado por tuplas, listas, estruturas ou outros símbolos.",
+        "O número de estados pode crescer rapidamente quando várias variáveis independentes são combinadas."
+      ],
+      "worked_example": {
+        "title": "Aspirador em duas salas",
+        "steps": [
+          "Posição pode ser A ou B.",
+          "Cada sala pode estar limpa ou suja.",
+          "Um estado precisa registrar posição e condições das salas.",
+          "Uma ação como aspirar ou mover produz um novo estado."
+        ],
+        "takeaway": "O estado é uma fotografia lógica da situação usada para decidir a próxima ação."
+      },
+      "common_mistakes": [
+        "Confundir estado com ação.",
+        "Guardar informações que não influenciam nenhuma decisão e aumentar o espaço de estados sem necessidade."
+      ],
+      "quick_check": "Se duas configurações exigem decisões diferentes, provavelmente devem ser estados diferentes."
+    },
+    {
+      "concept_key": "logica-proposicional",
+      "title": "Lógica proposicional",
+      "source_reference": "Tema 3 — Paradigma simbólico em IA",
+      "summary": "A lógica proposicional trabalha com proposições que podem ser verdadeiras ou falsas e com operadores que permitem combiná-las em expressões mais complexas.",
+      "why_it_matters": "Ela fornece uma linguagem formal simples para escrever regras e verificar se conclusões são coerentes com as premissas.",
+      "key_points": [
+        "Negação ¬p inverte o valor lógico de p.",
+        "Conjunção p ∧ q exige que p e q sejam verdadeiros.",
+        "Disjunção p ∨ q é verdadeira quando pelo menos uma proposição é verdadeira.",
+        "Condicional p → q representa a estrutura 'se p, então q'.",
+        "Bicondicional p ↔ q expressa equivalência lógica entre as proposições."
+      ],
+      "worked_example": {
+        "title": "Regra de acesso",
+        "steps": [
+          "p: usuário está autenticado.",
+          "q: usuário tem permissão.",
+          "Regra de acesso: p ∧ q.",
+          "Se p for verdadeiro e q falso, a conjunção é falsa e o acesso não é autorizado."
+        ],
+        "takeaway": "O valor de uma expressão depende dos valores das proposições e dos operadores usados."
+      },
+      "common_mistakes": [
+        "Ler p → q como se q também implicasse p.",
+        "Confundir conjunção com disjunção."
+      ],
+      "quick_check": "Antes de calcular uma expressão, traduza cada símbolo para uma frase simples."
+    },
+    {
+      "concept_key": "logica-de-predicados",
+      "title": "Lógica de predicados",
+      "source_reference": "Tema 3 — Paradigma simbólico em IA",
+      "summary": "A lógica de predicados amplia a lógica proposicional para representar objetos, propriedades, relações, variáveis e quantificadores.",
+      "why_it_matters": "Ela permite representar conhecimento mais rico do que frases indivisíveis, por exemplo relações entre pacientes, sintomas, objetos ou categorias.",
+      "key_points": [
+        "Predicados representam propriedades ou relações, como Urgente(Paciente).",
+        "Constantes identificam objetos específicos.",
+        "Variáveis podem assumir diferentes objetos do domínio.",
+        "∀ significa 'para todo' e ∃ significa 'existe'.",
+        "Funções podem mapear objetos para valores, como Temperatura(Paciente)."
+      ],
+      "worked_example": {
+        "title": "Todo sensor é dispositivo",
+        "steps": [
+          "Predicados: Sensor(x) e Dispositivo(x).",
+          "A frase 'todo sensor é dispositivo' usa quantificação universal.",
+          "Forma: ∀x (Sensor(x) → Dispositivo(x))."
+        ],
+        "takeaway": "A quantificação permite falar de classes inteiras de objetos de maneira formal."
+      },
+      "common_mistakes": [
+        "Trocar ∀ por ∃ e mudar totalmente o significado da frase.",
+        "Inverter uma implicação: Sensor→Dispositivo não significa Dispositivo→Sensor."
+      ],
+      "quick_check": "Identifique primeiro objetos, propriedades/relações e depois escolha o quantificador."
+    },
+    {
+      "concept_key": "bfs",
+      "title": "Busca em largura (BFS)",
+      "source_reference": "Tema 4 — Métodos de busca em IA",
+      "summary": "A busca em largura explora o espaço de estados por níveis. Primeiro visita os estados mais próximos da raiz, depois os do nível seguinte.",
+      "why_it_matters": "BFS é uma referência importante para entender estratégias não informadas e comparar comportamento, memória e ordem de exploração.",
+      "key_points": [
+        "A fronteira normalmente é organizada como uma fila FIFO.",
+        "Nós gerados primeiro são expandidos primeiro.",
+        "A exploração ocorre por profundidade crescente.",
+        "Em problemas com passos de mesmo custo, a primeira solução encontrada está no menor número de passos."
+      ],
+      "worked_example": {
+        "title": "Árvore simples",
+        "steps": [
+          "R possui filhos A e B.",
+          "A possui C e B possui D.",
+          "Fila começa com R.",
+          "A ordem de expansão é R, A, B, C, D."
+        ],
+        "takeaway": "BFS termina todo um nível antes de aprofundar."
+      },
+      "common_mistakes": [
+        "Usar uma pilha e obter comportamento de DFS.",
+        "Confundir menor número de passos com menor custo quando as ações têm custos diferentes."
+      ],
+      "quick_check": "Se a busca está visitando todos os vizinhos antes de descer, pense em BFS."
+    },
+    {
+      "concept_key": "dfs",
+      "title": "Busca em profundidade (DFS)",
+      "source_reference": "Tema 4 — Métodos de busca em IA",
+      "summary": "A busca em profundidade segue um ramo o máximo possível antes de retornar e explorar alternativas.",
+      "why_it_matters": "DFS mostra uma estratégia de exploração muito diferente da BFS e ajuda a compreender como a estrutura da fronteira muda o comportamento da busca.",
+      "key_points": [
+        "A fronteira pode ser implementada como pilha ou por recursão.",
+        "A busca aprofunda um caminho antes de voltar.",
+        "Pode usar menos memória do que BFS em muitos cenários.",
+        "A ordem dos sucessores influencia diretamente a trajetória explorada."
+      ],
+      "worked_example": {
+        "title": "Árvore simples",
+        "steps": [
+          "R possui filhos A e B.",
+          "A possui C e B possui D.",
+          "Escolhendo sempre o filho mais à esquerda, DFS visita R, A, C, B, D."
+        ],
+        "takeaway": "DFS prioriza profundidade, não proximidade ao estado inicial."
+      },
+      "common_mistakes": [
+        "Esperar que DFS sempre encontre o caminho mais curto.",
+        "Esquecer controle de estados visitados em grafos com ciclos."
+      ],
+      "quick_check": "Se o algoritmo entra em um ramo e só depois volta, o comportamento é de profundidade."
+    },
+    {
+      "concept_key": "busca-heuristica",
+      "title": "Busca heurística",
+      "source_reference": "Tema 4 — Métodos de busca em IA; Tema 9 — fundamentos matemáticos e otimização",
+      "summary": "A busca heurística usa informação adicional para estimar quais caminhos parecem mais promissores, tentando chegar à solução com menos exploração.",
+      "why_it_matters": "Heurísticas são o elo entre busca cega e algoritmos informados como Greedy e A*.",
+      "key_points": [
+        "h(n) estima o custo ou esforço restante de um estado n até um objetivo.",
+        "A heurística orienta a ordem de exploração; ela não precisa ser o custo real.",
+        "Uma boa heurística ajuda a reduzir explorações desnecessárias.",
+        "A qualidade da solução e garantias do algoritmo dependem de como a heurística é usada."
+      ],
+      "worked_example": {
+        "title": "Distância até um destino",
+        "steps": [
+          "Você está em um ponto da cidade e quer chegar ao destino.",
+          "A distância estimada até o destino serve como h(n).",
+          "Estados com estimativas mais promissoras podem ser avaliados antes."
+        ],
+        "takeaway": "A heurística é uma estimativa útil para guiar, não uma certeza sobre o custo restante."
+      },
+      "common_mistakes": [
+        "Confundir h(n) com g(n), que representa custo já percorrido.",
+        "Tratar qualquer estimativa como garantia de solução ótima."
+      ],
+      "quick_check": "Pergunte: este valor mede o passado do caminho ou estima o que ainda falta?"
+    },
+    {
+      "concept_key": "a-star",
+      "title": "Algoritmo A*",
+      "source_reference": "Tema 4 — Métodos de busca em IA",
+      "summary": "A* combina o custo já percorrido com uma estimativa do custo restante. Na forma usual, avalia estados por f(n)=g(n)+h(n).",
+      "why_it_matters": "A* é um dos exemplos centrais de busca informada porque equilibra o custo real acumulado com uma estimativa do futuro.",
+      "key_points": [
+        "g(n) é o custo do início até n.",
+        "h(n) estima o custo de n até o objetivo.",
+        "f(n)=g(n)+h(n) combina as duas informações.",
+        "A fronteira prioriza estados com menor valor de f.",
+        "As garantias de completude e otimalidade dependem das propriedades da heurística e do problema."
+      ],
+      "worked_example": {
+        "title": "Escolha entre dois nós",
+        "steps": [
+          "X: g=2 e h=6, então f=8.",
+          "Y: g=5 e h=1, então f=6.",
+          "A* prioriza Y porque possui menor f."
+        ],
+        "takeaway": "A* não olha apenas o caminho percorrido nem apenas a estimativa: combina ambos."
+      },
+      "common_mistakes": [
+        "Usar apenas h(n) e transformar o comportamento em busca gulosa.",
+        "Somar os valores errados ou interpretar h como custo já pago."
+      ],
+      "quick_check": "Sempre escreva g, h e f separadamente antes de escolher o próximo nó."
+    },
+    {
+      "concept_key": "representacao-de-conhecimento",
+      "title": "Representação do conhecimento",
+      "source_reference": "Tema 3 — representação mediante símbolos; Tema 5 — representação de conhecimento e inferência",
+      "summary": "Representar conhecimento significa organizar conceitos, objetos, relações, fatos e regras em estruturas que possam ser manipuladas por um sistema.",
+      "why_it_matters": "Sem representação, o sistema não possui uma forma estruturada de usar informação para inferir, explicar ou tomar decisões.",
+      "key_points": [
+        "Variáveis podem assumir valores diferentes.",
+        "Constantes representam valores ou objetos fixos.",
+        "Relações conectam conceitos ou objetos.",
+        "Funções mapeiam entradas para valores ou outras representações.",
+        "A estrutura escolhida precisa apoiar as inferências necessárias ao problema."
+      ],
+      "worked_example": {
+        "title": "Permissão explícita",
+        "steps": [
+          "Fato: Tecnica(Lia).",
+          "Regra: Tecnica(x) → PodeInspecionar(x).",
+          "Aplicando a regra a Lia, deriva-se PodeInspecionar(Lia)."
+        ],
+        "takeaway": "Uma boa representação torna a informação operacional para o raciocínio."
+      },
+      "common_mistakes": [
+        "Guardar dados sem representar relações entre eles.",
+        "Escolher uma representação que não permite realizar as inferências necessárias."
+      ],
+      "quick_check": "Pergunte se o sistema consegue usar a estrutura para responder algo novo, não apenas armazená-la."
+    },
+    {
+      "concept_key": "inferencia-logica",
+      "title": "Inferência lógica",
+      "source_reference": "Tema 5 — Representação de conhecimento e inferência",
+      "summary": "Inferência é o processo de derivar novas conclusões a partir de fatos e regras já representados.",
+      "why_it_matters": "É a etapa em que a base de conhecimento deixa de ser apenas armazenamento e passa a produzir conclusões justificáveis.",
+      "key_points": [
+        "Premissas são fatos ou afirmações disponíveis.",
+        "Regras definem relações que permitem obter conclusões.",
+        "Uma cadeia de inferência pode usar uma conclusão intermediária como nova premissa.",
+        "A validade da conclusão depende das regras e premissas utilizadas."
+      ],
+      "worked_example": {
+        "title": "Cadeia de regras",
+        "steps": [
+          "Fato: TemperaturaAlta.",
+          "Regra 1: TemperaturaAlta → Alerta.",
+          "Regra 2: Alerta → Verificar.",
+          "Conclusão: Verificar."
+        ],
+        "takeaway": "A inferência pode acontecer em várias etapas encadeadas."
+      },
+      "common_mistakes": [
+        "Tratar correlação ou chute como inferência lógica.",
+        "Ignorar uma premissa necessária e concluir algo que não é sustentado pelas regras."
+      ],
+      "quick_check": "Tente reconstruir o caminho completo da premissa até a conclusão."
+    },
+    {
+      "concept_key": "agentes-inteligentes",
+      "title": "Agentes inteligentes",
+      "source_reference": "Tema 6 — Agentes inteligentes",
+      "summary": "Um agente recebe percepções do ambiente, mantém ou atualiza uma representação de estado quando necessário e escolhe ações.",
+      "why_it_matters": "A ideia de agente conecta representação, estados, regras e decisão em um ciclo de comportamento.",
+      "key_points": [
+        "Percepções fornecem informação sobre o ambiente.",
+        "A função de agente mapeia percepções ou estados para ações.",
+        "Estados internos podem resumir informações relevantes do ambiente.",
+        "Máquinas de estados finitos representam comportamentos com estados e transições bem definidos."
+      ],
+      "worked_example": {
+        "title": "Aspirador simples",
+        "steps": [
+          "Percepção: posição A e quadrado sujo.",
+          "Regra de ação: se o quadrado atual está sujo, aspirar.",
+          "Nova percepção atualiza o estado e permite decidir a próxima ação."
+        ],
+        "takeaway": "Perceber e agir são papéis diferentes dentro do ciclo do agente."
+      },
+      "common_mistakes": [
+        "Confundir uma ação com uma percepção.",
+        "Achar que todo agente precisa de um modelo interno complexo; isso depende do problema."
+      ],
+      "quick_check": "Separe sempre três perguntas: o que o agente percebe, o que ele sabe do estado e o que ele faz."
+    },
+    {
+      "concept_key": "redes-semanticas",
+      "title": "Redes semânticas",
+      "source_reference": "Tema 7 — Redes semânticas em IA simbólica; Tema 9 — aplicações práticas",
+      "summary": "Redes semânticas organizam conhecimento como uma rede de nós e relações. Os nós representam entidades ou conceitos e as arestas expressam relações entre eles.",
+      "why_it_matters": "Essa estrutura torna relações explícitas e permite navegar pelo conhecimento, encontrar conexões e apoiar inferências.",
+      "key_points": [
+        "Nós representam conceitos ou entidades.",
+        "Arestas representam relações, como 'é um' ou outras associações definidas.",
+        "A direção e o rótulo da relação importam para o significado.",
+        "Estruturas hierárquicas podem apoiar herança ou navegação entre conceitos."
+      ],
+      "worked_example": {
+        "title": "Rede de veículos",
+        "steps": [
+          "Nó central: Carro Elétrico.",
+          "Relações conectam Sustentabilidade, Bateria e Veículos Ecológicos.",
+          "Cada conceito pode se conectar a outros mais específicos, formando um mapa relacional."
+        ],
+        "takeaway": "A rede representa significado por meio das conexões, não só pelos nós isolados."
+      },
+      "common_mistakes": [
+        "Supor que toda relação é transitiva; isso depende da semântica definida.",
+        "Ignorar o rótulo ou direção de uma aresta."
+      ],
+      "quick_check": "Ao olhar uma conexão, consiga completar a frase 'A relação de X com Y é...'."
+    },
+    {
+      "concept_key": "frames",
+      "title": "Frames e sistemas baseados em conhecimento",
+      "source_reference": "Tema 8 — Frames e sistemas baseados em conhecimento",
+      "summary": "Frames representam entidades ou situações em estruturas com campos chamados slots. Slots guardam atributos, valores ou referências e podem ter facetas, valores-padrão, restrições e relações de herança.",
+      "why_it_matters": "Frames organizam conhecimento contextual e repetitivo de forma modular, permitindo reutilizar propriedades e realizar inferências a partir da hierarquia.",
+      "key_points": [
+        "O nome do frame identifica o conceito ou entidade representada.",
+        "Slots são campos que armazenam informações específicas.",
+        "Facetas adicionam regras, padrões ou restrições aos slots.",
+        "Superframes definem características gerais que podem ser herdadas por subframes.",
+        "Procedimentos associados podem calcular ou atualizar valores quando condições são atendidas."
+      ],
+      "worked_example": {
+        "title": "Veículo e Carro",
+        "steps": [
+          "Superframe Veículo define propriedades gerais.",
+          "Frame Carro herda slots do Veículo.",
+          "Carro adiciona slots próprios, como número de portas.",
+          "Um valor específico no subframe pode especializar um padrão herdado."
+        ],
+        "takeaway": "Herança reduz redundância e mantém características gerais centralizadas."
+      },
+      "common_mistakes": [
+        "Confundir frame com uma simples lista sem relações ou regras.",
+        "Achar que um valor-padrão não pode ser substituído por informação mais específica."
+      ],
+      "quick_check": "Se você consegue identificar frame, slots, valores e relação de herança, a estrutura está clara."
+    }
+  ]
+}
